@@ -1,0 +1,37 @@
+import std.meta;
+struct typelesstype{
+	int size;
+	string name;
+	void this_(alias M)(){
+		static if(is(M == bool)){size=0;}
+			else{size= M.sizeof;}
+		name=__traits(identifier,M);
+		static assert(isvalid,M.stringof~": failed typelesstypes checks for reasons");
+	}
+	bool isvalid(){return true;}
+}
+typelesstype construct(M)(){
+	auto foo =typelesstype();
+	foo.this_!M;
+} 
+template typelesstype_(M){
+	typelesstype typelesstype_=construct!M;}
+
+template typelessdefinition(T){
+	template foo(membs...){
+		static if(membs.length==0){alias foo= AliasSeq!();}
+		else {alias foo= AliasSeq!(typelesstype_!(membs[0]),foo!(membs[1..$]));}
+	}
+	alias typelessdefinition= foo!(T.tupleof);
+}
+
+unittest{
+	struct vec2{ int x; int y;}
+	typelesstype bar_=typelesstype_!vec2;
+	alias foo =typelessdefinition!vec2;
+	static foreach(bar;foo){
+		bar.size.writeln;
+	}
+}
+
+void main(){}
