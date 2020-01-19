@@ -1,40 +1,30 @@
 import std.meta;
 import std.conv;
 
-static string endl= '
+string endl='
 ';
 
+static string curly_wrap(string s){
+	return "{"~s~"}";}
+static string bracket_wrap(string s){
+	return "["~s~"]";}
+static string paren_wrap(strind s){
+	return "("~s~")";}
+static string comma_cat(string s){
+	return s~",";}
+static string endl_cat(string s){
+	return s~";"~endl;}
+static string cast_wrap(string t,string s){
+	return "cast("~t~")("~s~")";}
+static string star_cat(string s){
+	return s~"*";}
+static string comma_list(string[] s){
+	if(s.length==1) {return s[0];}
+	else {return s[0].comma_cat~comma_list(s[1..$]);}
+}
 unittest{
-	ubyte[4] float_;
-	*cast(float*)&float_= float(4.20);
-	assert(*cast(float*)&float_== float(4.20));
-} 
+	assert(comman_list(["1","2","3"])=="1,2,3")}
 
-struct typelesstype{
-	int size;
-	string name;
-	static bool isvalid(M)(){return true;}
-	static string array_cat(size_t count, string s){
-		static if(size==0){return 
-			"ubyte["~(count/8).to!string~"] "~name~";"~endl ~ s;}
-		else{ return 
-			"ubyte["~(count*size).to!string~"] "~name~";"endl ~ s;}
-	}
-	static string get_cat(string x, string s){
-		static if(size==0){return 
-			"
-}
-template typelessdefinition(T){
 
-}
-
-unittest{
-	struct vec2{ int x; int y;}
-	typelesstype bar_=typelesstype_!vec2;
-	alias foo =typelessdefinition!vec2;
-	static foreach(bar;foo){
-		bar.size.writeln;
-	}
-}
 
 void main(){}
