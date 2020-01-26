@@ -34,7 +34,6 @@ struct vec2pointy_{
 		T foo=void;
 		foo.x=x.get!T.x;
 		foo.y=x.get!T.y;
-		foo.z=z.get!t.z;
 		return foo;
 	}
 	void valid(T)(){
@@ -76,18 +75,36 @@ struct vec3pointy_{
 }
 
 struct vec2pointy{
-	@property ispointy=true;
+	import std.traits;
+	enum ispointy=true;
+	alias tolitteral= tovec2;
 	vec2pointy_ grey;
 	
 	//mixin op_nonsense!1;
 	
-	auto opBinary(string op)(T a){
+	auto ref opBinary(string op)(T a) if (hasMember(T,"ispointy"){
+		import monkeytyping;
+		return operation!op(tolitteral,a.tolitteral);
+	}
+	auto ref opBinary(stringop)(auto ref T a) if (!hasMember(T,"ispointy"){
+		import monkeytyping;
+		return operation!op(tolitteral, a);
+	}
+	ref vec2pointy opAssign(T a) if (hasMember(T,"ispointy"){
+		this = a.tolitteral;
+	}
+	ref vec2pointy opAssign(T a) if (!hasMember(T,"ispointy"){
 		
+	}
+	ref vec2pointy opOpAssign(auto ref T a){
+		mixin("this = this",op,"a;");
+		return this;
+	}
 	
 	vec2pointy tovec2pointy{// my subtype system returns duplicates so I'm rolling with it
 		return vec2pointy(grey.x,grey.y);}
 	vec2 tovec2{
-		return grey!vec2;}
+		return grey.get!vec2;}
 	
 	this(ref vec2 construct){
 		grey.x=&construct.x;

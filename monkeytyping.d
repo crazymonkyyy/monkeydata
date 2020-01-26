@@ -136,6 +136,15 @@ template subtypelist(types...){
 	alias subtypelist = Filter!(f,pairgen!(types.length-1));
 }
 
+auto operation(string op,T,U)(auto ref T,auto ref U){
+	static if(issubtype!(T,U)){
+		
+	}
+	else{ static if(issubtype!(U,T)){
+	
+	}}
+}
+
 unittest{
 	struct x_{int x;}
 	struct y_{int y;}

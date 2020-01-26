@@ -5,3 +5,5 @@ much much more subtype list test
 make bool warping types packed, also small types in general?
 
 check if the user passed in classes or structs with private members to yell at them
+
+fix monkeytyping definitions to handle enums

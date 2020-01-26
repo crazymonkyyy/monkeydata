@@ -1,34 +1,21 @@
 import std.stdio;
-struct bar{
-	int i;
-	struct dollar{
-		int j;
-		this(int i){j=i;}
-		int opCall(){return j;}
+import std.traits;
+	struct foo{
+		int x;
+		enum y=true;
 	}
-	int opSlice(){return i;}
-	int opSlice(size_t i,size_t j){return cast(int)(i-j);}
-	int opSlice(dollar i,size_t j){return i()-cast(int)j;}
-	int opSlice(size_t i,dollar j){return cast(int)i-j();}
-	dollar opDollar(){return dollar(1);}
-}
-unittest{
-	bar hi;
-	assert(hi[$..0]==1);
-	assert(hi[1..$]==0);
-}
-unittest{
-	struct i{
-		int i_;
-		int opBinary(string op:"+")(i b){
-			return i_+ b.i_;}
-		void opAssign(int a){
-			i_=a;}
+	struct bar{
+		int x;
 	}
-	i foo;
-	i bar;
-	auto foobar= bar +foo;
-	bar+=foo;
+	void poke(T)(T a) if (T.y==true){}
+	void poke(T)(T a) if (!hasMember!(T,"y")){}
+	
+
+unittest{
+	foo foo_;
+	bar bar_;
+	poke(foo_);
+	poke(bar_);
 }
 void main(string[] args){}
 
