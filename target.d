@@ -136,7 +136,6 @@ struct vec2pointy{
 		grey.y=y_;
 	}
 	void setpointers(T)(T litteral){
-		import monkeytyping;
 		static assert(issubtype!(vec2,T));
 		static foreach(def; definitions!T){
 			//grey.x=&litteral.x;

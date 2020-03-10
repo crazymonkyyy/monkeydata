@@ -89,7 +89,6 @@ struct vec2pointy{
 	alias mylitteral=vec2;
 	vec2pointy_ grey;
 	
-	
 	auto ref opBinary(string op,T)(auto ref T a) if (hasMember(T,"ispointy")){
 		return operation!op(tolitteral,a.tolitteral);
 	}
@@ -135,4 +134,15 @@ struct vec2pointy{
 		grey.x=x_;
 		grey.y=y_;
 	}
+	void setpointers(T)(T litteral){
+		static assert(issubtype!(vec2,T));
+		static foreach(def; definitions!T){
+			mixin("grey."~def.name~" =&litteral."~def.name~";");
+	}}
+}
+
+unittest{
+	vec2 bar= vec2(1,2);
+	vec2pointy foo=bar;
+	assert(foo.tovec2==bar);
 }
