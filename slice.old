@@ -1,0 +1,83 @@
+struct dollar{}
+
+struct myslice(parentT,U,V){
+	static assert(is(U==size_t) || is(U==dollar));
+	static assert(is(V==size_t) || is(V==dollar));
+	static assert(!(is(U==dollar) && is(U==dollar)));
+	static assert((hasMember(parentT,"isaosoa"));
+	parentT* parent;
+	U start;
+	V end;
+	struct innerslice(T){
+		T start;
+		T end;
+		T.mylitteral head(){return start.tolitteral;}
+		typeof(this) tail(){return typeof(this)(++start,end);}
+		bool empty(){return start>end;}
+	}
+	alias slicy=innerslice!(parentT.mypointy);
+	template iterate(todo){
+		mixin(import_);
+		auto mathstorage= *parent.mathz(start);//goto doesnt allow skipping varible init
+		size_t whichsoa = *parent.mathz(start).which;
+		//create
+		static if(is(U==dollar)){
+			auto count_ = *parent.count;
+			*parent.expand(
+				*parent.mathz(start).which+
+				*parent.mathz(end).which+1);
+			alias newslice = *parent[count_..count_+end].itterate!(copy);
+			mixin(createmix);
+			goto halt;
+		}
+		static if(is(V==size_t)){
+			*parent.expand(
+					*parent.mathz(end).which+1);}
+		
+		//sync
+		if(*parent.mathz(start).offset != 0){
+			if(*parent.mathz(end).which > *parent.mathz(start).which){
+				goto small;}
+			
+			slicy syncslice= slicy(
+					(*parent.chunks[whichsoa])[*parent.mathz(start).offset],
+					(*parent.chunks[whichsoa])[$]);
+			mixin(syncmix);
+			whichsoa++;
+		}
+		
+		//main
+		
+		while(whichsoa < *parent.mathz(end).which){
+			slicy mainslice= slicy(
+					(*parent.chunks[whichsoa])[0],
+					(*parent.chunks[whichsoa])[$]);
+			mixin(mainmix);
+			whichsoa++;
+		}
+		
+		//desync
+		assert(whichsoa == *parent.mathz(end).which);{
+			auto last= *parent.mathz(end);
+			mathsstorage = last;
+			slicy desyncslice=slicy(
+					(*parent.chunks[whichsoa])[0],
+					(*parent.chunks[whichsoa])[last.offset]);
+			mixin(desyncmix);
+		}
+		//clean
+		static if(is(V==size_t)){ goto halt;}{
+			cleaninifite: if(mathstorage != *parent.mathz(end)){
+				
+			
+		}
+		//end
+		halt:mixin(export_);
+	}
+	void map(alias f){
+		static if(is(U==dollar)){
+			
+}
+
+void main(){}
+

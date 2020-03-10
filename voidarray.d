@@ -1,4 +1,5 @@
-struct mypointer(size_t size){ 
+struct mypointer(size_t size){
+	import typeless;
 	ubyte* point;
 	static if(size==0){
 		ubyte subbyte;
@@ -6,58 +7,77 @@ struct mypointer(size_t size){
 		struct bool_{
 			import std.bitmanip;
 			mixin(bitfields!(
+				bool,"b0",1,
 				bool,"b1",1,
 				bool,"b2",1,
 				bool,"b3",1,
-				bool,"b4",1,
 				
+				bool,"b4",1,
 				bool,"b5",1,
 				bool,"b6",1,
-				bool,"b7",1,
-				bool,"b8",1));
+				bool,"b7",1,));
 		}
 		
 	}
 	void opUnary(string op:"++")(){
 		point+=size;
 		static if(size==0){
-			if (subbyte == 8) {point++; subbyte=1;}
+			if (subbyte == 7) {point++; subbyte=0;}
 			else {subbyte++;}
 		}
 	}
 	void opUnary(string op:"--")(){
 		point-=size;
 		static if(size==0){
-			if (subbyte == 1) {point--; subbyte=8;}
+			if (subbyte == 0) {point--; subbyte=7;}
 			else {subbyte--;}
 		}
 	}
-	void set(T)(T foo){
-		
+	void opBinary(string op:"+")(int a){
+		point+= size*a;
 		static if(size==0){
+			static assert(false,"probaly right but not yet tested");
+			subbyte+=a;
+			point+=subbyte/8;
+			subbyte= subbyte%8;
+	}}
+	void opAssign(T)(T* a){
+		static assert(mysizeof!T >= size,"You are attempting to assign a sized pointer to a smaller datatype");
+		point=cast(ubyte*) a;
+	}
+	void opAssign(mypointer!size a){
+		point = a.point;
+		static if(size==0){
+			subbyte = a.subbyte;}
+	}
+	void set(T)(T foo){
+		static assert(mysizeof!T <= size,"You are attempting to set data not nessery allocated with void arrays");
+		static if(mysizeof!T==0){
+			static if(size !=0){enum subbyte=0;}//grabing a bool from a a different data type should do something, even if its a bit wonky
 			import std.conv;
 			string c(string s,int x){
 				return s~"case "~x.to!string~": (cast(bool_*)point).b"~x.to!string~" =foo; break;";}
 			switch(subbyte){
-				mixin( c(c(c(c( c(c(c(c("",1),2),3),4),5),6),7),8)
+				mixin( c(c(c(c( c(c(c(c("",0),1),2),3),4),5),6),7)
 					~"default: assert(false);");}
 		}
 		else{
-			static assert(T.sizeof == size);
-			*cast(T*)point=foo;
+			*(cast(T*)point)=foo;
 		}
 	}
 	T get(T)(){
-		static if(size==0){
+		static assert(mysizeof!T <= size,"You are attempting to get data not nessery allocated with void arrays");
+		static if(mysizeof!T==0){
+			static if(size!=0){enum subbyte=0;}
 			import std.conv;
 			string c(string s,int x){
 				return s~"case "~x.to!string~": return (cast(bool_*)point).b"~x.to!string~"; break;";}
 			switch(subbyte){
-				mixin( c(c(c(c( c(c(c(c("",1),2),3),4),5),6),7),8)
+				mixin( c(c(c(c( c(c(c(c("",0),1),2),3),4),5),6),7)
 					~"default: assert(false);");}
 		}
 		else{
-			return *cast(T*)(cast(void*)point);}
+			return *cast(T*)(point);}
 	}
 }
 
@@ -69,7 +89,7 @@ struct voidarray(size_t size, size_t count){
 	}
 	else {ubyte[count*size] array;}
 	mypointer!size opIndex(size_t i){
-		static if(size==0){ return mypointer!(0)(&(array.ptr[i/8]),i%8+1);}
+		static if(size==0){ return mypointer!(0)(&(array.ptr[i/8]),i%8);}
 		else {return mypointer!(size)(&(array.ptr[i*size]));}
 	}
 }

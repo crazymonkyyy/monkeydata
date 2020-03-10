@@ -1,0 +1,1 @@
+enum string[]="a".."z";

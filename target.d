@@ -13,16 +13,20 @@ struct vec3{
 //mixin monkeydata!(monkeytypes: vec3,vec2)
 
 struct vec2pointy_{
-	import voidarrays;
+	import voidarray;
 	mypointer!4 x;
 	mypointer!4 y;
-	void opUnaray(string op:"++"){
+	void opUnaray(string op:"++")(){
 		++x;
 		++y;
 	}
-	void opUnarry(string op:"--"){
+	void opUnarry(string op:"--")(){
 		--x;
 		--y;
+	}
+	void opBinary(string op:"+")(int a){
+		x+a;
+		y+a;
 	}
 	void set(T)(ref T setter){
 		valid!T;
@@ -43,19 +47,24 @@ struct vec2pointy_{
 }
 
 struct vec3pointy_{
-	import voidarrays;
+	import voidarray;
 	mypointer!4 x;
 	mypointer!4 y;
 	mypointer!4 z;
-	void opUnaray(string op:"++"){
+	void opUnaray(string op:"++")(){
 		++x;
 		++y;
 		++z;
 	}
-	void opUnarry(string op:"--"){
+	void opUnarry(string op:"--")(){
 		--x;
 		--y;
 		--z;
+	}
+	void opBinary(string op:"+")(int a){
+		x+a;
+		y+a;
+		z+a;
 	}
 	void set(T)(T setter){
 		valid!T;
@@ -76,48 +85,60 @@ struct vec3pointy_{
 
 struct vec2pointy{
 	import std.traits;
+	import monkeytyping;
 	enum ispointy=true;
-	alias tolitteral= tovec2;
+	alias tolitteral=tovec2;
+	alias mylitteral=vec2;
 	vec2pointy_ grey;
 	
 	//mixin op_nonsense!1;
 	
-	auto ref opBinary(string op)(T a) if (hasMember(T,"ispointy"){
-		import monkeytyping;
+	auto ref opBinary(string op,T)(auto ref T a) if (hasMember(T,"ispointy")){
 		return operation!op(tolitteral,a.tolitteral);
 	}
-	auto ref opBinary(stringop)(auto ref T a) if (!hasMember(T,"ispointy"){
-		import monkeytyping;
+	auto ref opBinary(string op)(auto ref T a) if (!hasMember(T,"ispointy")){
 		return operation!op(tolitteral, a);
 	}
-	ref vec2pointy opAssign(T a) if (hasMember(T,"ispointy"){
+	ref typeof(this) opAssign(T)(T a) if (hasMember(T,"ispointy")){
 		this = a.tolitteral;
 	}
-	ref vec2pointy opAssign(T a) if (!hasMember(T,"ispointy"){
-		
-	}
-	ref vec2pointy opOpAssign(auto ref T a){
+	ref typeof(this) opAssign(T)(T a) if (!hasMember(T,"ispointy")){
+		static if(issubtype!(mylitteral,T)){
+			static foreach(foo;definitions!T){
+				mixin(foo.name,"= a.",foo.name,";");}
+		} else { static assert(issubtype!(T,mylitteral),"These types airnt compadible");
+			static foreach(foo;definitions!mylitteral){
+				mixin(foo.name,"= a.",foo.name,";");
+	}}}
+	ref typeof(this) opOpAssign(T)(auto ref T a){
 		mixin("this = this",op,"a;");
 		return this;
 	}
+	ref typeof(this) opUnarry(string op:"++")(){
+		++grey;}
+	ref typeof(this) opUnarry(string op:"--")(){
+		--grey;}
 	
-	vec2pointy tovec2pointy{// my subtype system returns duplicates so I'm rolling with it
+	void movepointer(int x){
+		grey + x;}
+	
+	vec2pointy tovec2pointy(){// my subtype system returns duplicates so I'm rolling with it
 		return vec2pointy(grey.x,grey.y);}
-	vec2 tovec2{
+	vec2 tovec2(){
 		return grey.get!vec2;}
 	
 	this(ref vec2 construct){
 		grey.x=&construct.x;
 		grey.y=&construct,y;
 	}
-	this(vec2.x* x_,vec2.y* y_){
+	this(typeof(vec2.x)* x_,typeof(vec2.y)* y_){
 		grey.x=x_;
 		grey.y=y_;
 	}
 	void setpointers(T)(T litteral){
 		import monkeytyping;
 		static assert(issubtype!(vec2,T));
-		static foreach(def, definitions!T){
+		static foreach(def; definitions!T){
 			//grey.x=&litteral.x;
 			//grey.y=&litteral.y;
 	}}
@@ -126,7 +147,7 @@ struct vec2pointy{
 struct vec3pointy{
 	vec3pointy_ grey;
 	
-	mixin op_nonsense!0;
+	//mixin op_nonsense!0;
 	
 	vec2pointy tovec2pointy(){
 		return vec2pointy(grey.x,grey.y);}
@@ -142,7 +163,7 @@ struct vec3pointy{
 		grey.y=&construct,y;
 		grey.z=&construct.z;
 	}
-	this(vec3.x* x_,vec3.y* y_,vec3.z z_){
+	this(typeof(vec3.x)* x_,typeof(vec3.y)* y_,typeof(vec3.z)* z_){
 		grey.x=x_;
 		grey.y=y_;
 		grey.z=z_;
@@ -150,91 +171,93 @@ struct vec3pointy{
 	void setpointers(){}
 }
 
-struct vec2slice{
-	vec2pointy start;
-	vec2pointy end;
-	/*delagate defination I don't know how to write*/ end_;
-	//start_ @future 
-	vec2aosoa* parent;
-	bool halt;
-	
-	vec2 head(){
-		return *start;}
-	vec2slice tail(){
-		if(start==end){return end_();}
-		else {vec2slice(++start,end,end_);}
-	}
-	//map(){};reduce(){};filter(){}etc;
-}
-struct vec3slice{}
-
 struct vec2soa_(size_t n){
 	import voidarray;
 	voidarray!(4,n) x;
 	voidarray!(4,n) y;
-	vec2pointy_ opIndex(size_t i){
-		return vec2pointy_(x[i],y[i]);
+	vec2pointy opIndex(size_t i){
+		return vec2pointy(x[i],y[i]);
 	}
-	size_t opDollar(){ return n;}
+	size_t opDollar(){ return n-1;}
 }
 struct vec3soa_(size_t n){
 	import voidarray;
 	voidarray!(4,n) x;
 	voidarray!(4,n) y;
 	voidarray!(4,n) z;
-	vec2pointy_ opIndex(size_t i){
-		return vec2pointy_(x[i],y[i],z[i]);
+	vec2pointy opIndex(size_t i){
+		return vec2pointy(x[i],y[i],z[i]);
 	}
-	size_t opDollar(){ return n;}
+	size_t opDollar(){ return n-1;}
 }
+struct vec2soaslice{
+	/*immutable?*/ size_t start__;
+	vec2pointy start;
+	/*immutable?*/ size_t end__;
+	vec2pointy end;
+	vec2pointy front(){return start;}
+	void popFront(){start++;}
+	bool empty(){return start > end;}
+}
+struct vec3soaslice(){}
+
+struct vec2aosoaslice(bool expanding,size_t soa=512){
+	vec2aosoa!soa* parent;
+	size_t start;
+	static if(expanding){
+		size_t end(){return(*parent).count;}}
+	else{
+		size_t end;}
+	import lazynullable;
+	nullable!vec2soaslice lasthead;
+	size_t segment(){
+		size_t natspilt= (start/soa+1)*soa-1;
+		return min(natspilt,end);
+	}
+	vec2soaslice front(){
+		if(lasthead.isnull){
+			auto seg=segment;
+			lasthead=vec2soaslice(start,(*parent)[start],seg,(*parent)[seg]);
+		}
+		return lasthead;
+	}
+	void popFront(){
+		start=lasthead.end__;
+		start++;
+		lasthead.isnull=true;
+	}
+	bool empty(){return start>end;}
+}
+
 struct vec2aosoa(size_t soa=512){
 	vec2soa_!soa[] chunks;
 	size_t count;
 	struct dollar{}
-	dollar opDollar(){return dollar;}
+	dollar opDollar(){return dollar();}
 	vec2pointy opIndex(size_t i){
 		assert(i<count,"accessing random data is frowned on, use [0..i] 
 				if you intended to create i`th T, or [$..i] if you intended 
 				to make i elements");
 		return vec2pointy((chunks[i/soa])[i%soa]);
 	}
-	auto opIndex(dollar d){
-		return [count-1];}
-	vec2slice opSlice(){return [0..$];}
-	vec2slice opSlice(size_t i, size_t j){
-		assert(i<j,"no");
-		size_t whichchunk=i/soa;
-		size_t max=whichchunk*(soa+1)-1;
-		bool isjthere=j<max;
-		if (isjthere){
-			return vec2slice([i],[j],
-					(){assert(false,"your slice didnt halt");},true);}
-		else{
-			return vec2slice([i],[max],
-					(){[max+1,j];},false);}
+	vec2pointy opIndex(dollar i){this[count-1];}
+	vec2aosoaslice!(true,soa) opSlice(){return this[0..$];}
+	vec2aosoaslice!(false,soa) opSlice(size_t i,size_t j){
+		return vec2aosoaslice!(false,soa)(&this,i,j);
 	}
-	vec2slice opSlice(dollar i, size_t j){
-		expand(count+soa);
-		size_t whichchunk=count/soa;
-		size_t max=whichchunk*(soa+1)-1;
-		bool isjthere=j<max;
-		if(isjthere){
-			return vec2slice([count-1],[j],
-					(){assert(false,"your slice didnt halt");},true);}
-		else{
-			return vec2slice([count-1],[max],
-					(){expand();return [$..j-soa];},false);}
+	vec2aosoaslice!(true,soa) opSlice(size_t i,dollar j){
+		return vec2aosoaslice!(false,soa)(&this,i);
 	}
-	vec2slice opSlice(size_t i, dollar j){
-		size_t whichchunk=i/soa;
-		size_t max=whichchunk*(soa+1)-1;
-		bool isjthere=(count-1)<max;
-		if(isjthere){
-			return vec2slice([i],[count-1],
-					(){assert(false,"your slice didn't halt");},true);}
-		else{
-			return vec2slice([i],[max],
-					(){expand(max+soa);return [max+1..$];},false);}
+	vec2aosoaslice!(false,soa) opSlice(dollar i,size_t j){
+		auto c=count;
+		expand(count+j);
+		return this[c,$];
 	}
-	alias [] this;
+	void expand(size_t i){
+		if(i>count){
+			if(i > chunks.length*soa){ chunks.length= (i/soa)+1;}
+			count=i;
+		}
+	}
+	alias opSlice this;
 }

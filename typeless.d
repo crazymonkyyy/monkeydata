@@ -5,19 +5,27 @@ import std.stdio;
 enum string endl="\n";
 
 static string curly_wrap(string s){
-	return "{"~endl~s~"}";}
+	return "{"~endl~s~"}"~endl;}
 static string bracket_wrap(string s){
 	return "["~s~"]";}
 static string paren_wrap(string s){
 	return "("~s~")";}
+static string quote_wrap(string s){
+	return '\"'~s~'\"';}
 static string comma_cat(string s){
 	return s~",";}
+static string colon_cat(string s){
+	return s~":";}
 static string endl_cat(string s){
 	return s~";"~endl;}
 static string cast_wrap(string t,string s){
 	return "cast("~t~")("~s~")";}
 static string star_cat(string s){
 	return s~"*";}
+static string cat(string s,string t){
+	return s ~ t;}
+static string reverse_cat(string s, string t){
+	return t ~ s;}
 static string comma_list(string[] s){
 	if(s.length==1) {return s[0];}
 	else {return s[0].comma_cat~comma_list(s[1..$]);}
@@ -33,6 +41,7 @@ unittest{
 }
 
 static string[] make_strings(string fun,string import_="",T)(T[] args...){
+	import typeless;
 	mixin(import_);
 	if(args.length==0){ return [];}
 	else{
@@ -42,13 +51,36 @@ static string[] make_strings(string fun,string import_="",T)(T[] args...){
 unittest{
 	assert(make_strings!("to!string","import std.conv;")([1,2,3])
 			== ["1","2","3"]);}
+			
+T noop(T)(T a){return a;}
+static string case_list(string f,string import_="",string g="noop",T)(T[] args...){
+	mixin(import_);
+	if(args.length==0){return [];}
+	else{
+		return "case "~mixin("args[0]."~g)~": "~mixin("args[0]."~f)~endl
+				~case_list!(f,g,T)(args[1..$]);}
+}
+
+//unittest{case_list!("noop")(["1","2","3"]).writeln;}
+
+static string spiltmixin(string f,string g)(string s){
+	return mixin("s."~f~"~"~"s."~g);}//awful in practice
+
+unittest{
+	assert("hi".spiltmixin!("comma_cat","star_cat")=="hi,hi*");}
 
 struct typeless{
 	int size;
 	string name;
 }
+
+template mysizeof(T){
+	static if (is(T==bool)){enum mysizeof=0;}
+	else{enum mysizeof=T.sizeof;}
+}
+
 template maketypeless(alias def){
-	enum maketypeless=typeless(def.T.sizeof,def.name);}
+	enum maketypeless=typeless(mysizeof!(def.T),def.name);}
 unittest{
 	import monkeytyping;
 	struct vec2{int x; int y;}

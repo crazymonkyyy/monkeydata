@@ -1,0 +1,914 @@
+(spec:1) /usr/include/dlang/dmd/std/traits.d(263): Error: `cent` and `ucent` types not implemented
+(spec:1) /usr/include/dlang/dmd/core/stdc/stdint.d(32): Error: `cent` and `ucent` types not implemented
+(spec:1) /usr/include/dlang/dmd/std/typecons.d(7254): Error: cannot take address of local `x` in `@safe` function `__lambda260`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isCopyable(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isCopyable(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isFinal(X...) if (X.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isFinal(X...) if (X.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isFunction(X...) if (X.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isFunction(X...) if (X.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isType(X...) if (X.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isType(X...) if (X.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ifTestable(T, alias pred = (a) => a)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ifTestable(T, alias pred = (a) => a)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `allSameType(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `allSameType(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `getSymbolsByUDAImpl(alias symbol, alias attribute, names...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `getSymbolsByUDAImpl(alias symbol, alias attribute, names...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `getSymbolsByUDA(alias symbol, alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `getSymbolsByUDA(alias symbol, alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isDesiredUDA(alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isDesiredUDA(alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `getUDAs(alias symbol, alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `getUDAs(alias symbol, alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasUDA(alias symbol, alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasUDA(alias symbol, alias attribute)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `select(bool cond : true, A, B)(A a, lazy B b)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `select(bool cond : true, A, B)(A a, lazy B b)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Select(bool condition, T...) if (T.length == 2)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Select(bool condition, T...) if (T.length == 2)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `mangledName(sth...) if (sth.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `mangledName(sth...) if (sth.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Promoted(T) if (isScalarType!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Promoted(T) if (isScalarType!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `mostNegative(T) if (isNumeric!T || isSomeChar!T || isBoolean!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `mostNegative(T) if (isNumeric!T || isSomeChar!T || isBoolean!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Signed(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Signed(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Largest(T...) if (T.length >= 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Largest(T...) if (T.length >= 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Unsigned(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Unsigned(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ValueType(V : V[K], K)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ValueType(V : V[K], K)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `KeyType(V : V[K], K)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `KeyType(V : V[K], K)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `OriginalType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `OriginalType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ForeachType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ForeachType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `CopyConstness(FromType, ToType)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `CopyConstness(FromType, ToType)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `CopyTypeQualifiers(FromType, ToType)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `CopyTypeQualifiers(FromType, ToType)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ModifyTypePreservingTQ(alias Modifier, T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ModifyTypePreservingTQ(alias Modifier, T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Unqual(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Unqual(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Unconst(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Unconst(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isFinalClass(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isFinalClass(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isAbstractClass(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isAbstractClass(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isNestedFunction(alias f)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isNestedFunction(alias f)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isFinalFunction(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isFinalFunction(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isAbstractFunction(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isAbstractFunction(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isCallable(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isCallable(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isSomeFunction(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isSomeFunction(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isDelegate(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isDelegate(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isFunctionPointer(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isFunctionPointer(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isTypeTuple(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isTypeTuple(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isExpressions(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isExpressions(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isInstanceOf(alias S, T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isInstanceOf(alias S, T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isMutable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isMutable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isIterable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isIterable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isAggregateType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isAggregateType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `PointerTarget(T : T*)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `PointerTarget(T : T*)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isPointer(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isPointer(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isSIMDVector(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isSIMDVector(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isBuiltinType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isBuiltinType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isAssociativeArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isAssociativeArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isDynamicArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isDynamicArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isStaticArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isStaticArray(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isAutodecodableString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isAutodecodableString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `convertToString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `convertToString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isConvertibleToString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isConvertibleToString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isEqualityComparable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isEqualityComparable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isOrderingComparable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isOrderingComparable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isNarrowString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isNarrowString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isSomeString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isSomeString(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isSomeChar(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isSomeChar(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isSigned(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isSigned(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isUnsigned(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isUnsigned(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isBasicType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isBasicType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isScalarType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isScalarType(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isNumeric(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isNumeric(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isFloatingPoint(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isFloatingPoint(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isIntegral(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isIntegral(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isBoolean(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isBoolean(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `BuiltinTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `BuiltinTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `AssocArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `AssocArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `StringTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `StringTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `DynamicArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `DynamicArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `StaticArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `StaticArrayTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `CharTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `CharTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `SignedTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `SignedTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `UnsignedTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `UnsignedTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `NumericTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `NumericTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `FloatingPointTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `FloatingPointTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `IntegralTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `IntegralTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `BooleanTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `BooleanTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `AliasThisTypeOf(T) if (isAggregateType!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `AliasThisTypeOf(T) if (isAggregateType!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `lvalueOf(T)(inout __InoutWorkaroundStruct = __InoutWorkaroundStruct.init)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `lvalueOf(T)(inout __InoutWorkaroundStruct = __InoutWorkaroundStruct.init)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `rvalueOf(T)(inout __InoutWorkaroundStruct = __InoutWorkaroundStruct.init)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `rvalueOf(T)(inout __InoutWorkaroundStruct = __InoutWorkaroundStruct.init)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isCovariantWith(F, G) if (is(F == function) && is(G == function) || is(F == delegate) && is(G == delegate) || isFunctionPointer!F && isFunctionPointer!G)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isCovariantWith(F, G) if (is(F == function) && is(G == function) || is(F == delegate) && is(G == delegate) || isFunctionPointer!F && isFunctionPointer!G)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isStorageClassImplicitlyConvertible(From, To)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isStorageClassImplicitlyConvertible(From, To)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isBlitAssignable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isBlitAssignable(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isLvalueAssignable(Lhs, Rhs = Lhs)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isLvalueAssignable(Lhs, Rhs = Lhs)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isRvalueAssignable(Lhs, Rhs = Lhs)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isRvalueAssignable(Lhs, Rhs = Lhs)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isAssignable(Lhs, Rhs = Lhs)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isAssignable(Lhs, Rhs = Lhs)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isImplicitlyConvertible(From, To)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isImplicitlyConvertible(From, To)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ImplicitConversionTargets(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ImplicitConversionTargets(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `CommonType(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `CommonType(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `classInstanceAlignment(T) if (is(T == class))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `classInstanceAlignment(T) if (is(T == class))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `maxAlignment(U...) if (isTypeTuple!U)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `maxAlignment(U...) if (isTypeTuple!U)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `TemplateArgsOf(alias T : Base!Args, alias Base, Args...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `TemplateArgsOf(alias T : Base!Args, alias Base, Args...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `TemplateOf(alias T : Base!Args, alias Base, Args...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `TemplateOf(alias T : Base!Args, alias Base, Args...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `MemberFunctionsTuple(C, string name) if (is(C == class) || is(C == interface))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `MemberFunctionsTuple(C, string name) if (is(C == class) || is(C == interface))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `TransitiveBaseTypeTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `TransitiveBaseTypeTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `InterfacesTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `InterfacesTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `BaseClassesTuple(T) if (is(T == class))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `BaseClassesTuple(T) if (is(T == class))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `BaseTypeTuple(A)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `BaseTypeTuple(A)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `EnumMembers(E) if (is(E == enum))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `EnumMembers(E) if (is(E == enum))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasStaticMember(T, string member)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasStaticMember(T, string member)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasMember(T, string name)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasMember(T, string name)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Identity(alias A)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Identity(alias A)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasElaborateMove(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasElaborateMove(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasElaborateDestructor(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasElaborateDestructor(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasElaborateAssign(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasElaborateAssign(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasElaborateCopyConstructor(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasElaborateCopyConstructor(S)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasUnsharedAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasUnsharedAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasUnsharedAliasing(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasUnsharedAliasing(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasIndirections(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasIndirections(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasAliasing(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasAliasing(T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasUnsharedObjects(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasUnsharedObjects(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasObjects(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasObjects(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasRawUnsharedAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasRawUnsharedAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasRawUnsharedAliasing(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasRawUnsharedAliasing(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasRawAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasRawAliasingImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasRawAliasing(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasRawAliasing(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `RepresentationTypeTupleImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `RepresentationTypeTupleImpl(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `RepresentationTypeTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `RepresentationTypeTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `FieldNameTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `FieldNameTuple(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `NameOf(alias T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `NameOf(alias T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Fields(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Fields(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasNested(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasNested(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isNested(T) if (is(T == class) || is(T == struct) || is(T == union))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isNested(T) if (is(T == class) || is(T == struct) || is(T == union))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isInnerClass(T) if (is(T == class))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isInnerClass(T) if (is(T == class))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `SetFunctionAttributes(T, string linkage, uint attrs) if (isFunctionPointer!T || isDelegate!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `SetFunctionAttributes(T, string linkage, uint attrs) if (isFunctionPointer!T || isDelegate!T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `FunctionTypeOf(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `FunctionTypeOf(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `variadicFunctionStyle(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `variadicFunctionStyle(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Variadic` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Variadic` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `functionLinkage(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `functionLinkage(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isUnsafe(alias func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isUnsafe(alias func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `isSafe(alias func) if (isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `isSafe(alias func) if (isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `hasFunctionAttributes(args...) if (args.length > 0 && isCallable!(args[0]) && allSatisfy!(isSomeString, typeof(args[1..__dollar])))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `hasFunctionAttributes(args...) if (args.length > 0 && isCallable!(args[0]) && allSatisfy!(isSomeString, typeof(args[1..__dollar])))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `extractAttribFlags(Attribs...)()` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `extractAttribFlags(Attribs...)()` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `functionAttributes(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `functionAttributes(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `FunctionAttribute` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `FunctionAttribute` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ParameterDefaults(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ParameterDefaults(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ParameterIdentifierTuple(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ParameterIdentifierTuple(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `extractParameterStorageClassFlags(Attribs...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `extractParameterStorageClassFlags(Attribs...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ParameterStorageClassTuple(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ParameterStorageClassTuple(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ParameterStorageClass` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ParameterStorageClass` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `arity(func...) if (func.length == 1 && isCallable!func && (variadicFunctionStyle!func == Variadic.no))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `arity(func...) if (func.length == 1 && isCallable!func && (variadicFunctionStyle!func == Variadic.no))` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Parameters(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Parameters(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ReturnType(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ReturnType(func...) if (func.length == 1 && isCallable!func)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `fqnType(T, bool alreadyConst, bool alreadyImmutable, bool alreadyShared, bool alreadyInout)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `fqnType(T, bool alreadyConst, bool alreadyImmutable, bool alreadyShared, bool alreadyInout)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `fqnSym(alias T : X!A, alias X, A...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `fqnSym(alias T : X!A, alias X, A...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `QualifiedEnum` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `QualifiedEnum` is a `enum` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `QualifiedNameTests` is a `struct` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `QualifiedNameTests` is a `struct` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `fullyQualifiedName(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `fullyQualifiedName(T...) if (T.length == 1)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `moduleName(alias T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `moduleName(alias T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `packageName(alias T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `packageName(alias T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `parentOf(alias sym)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `parentOf(alias sym)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `SubTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `SubTypeOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(MutableOf, ConstOf, SharedOf, SharedConstOf, ImmutableOf, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `QualifierOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `QualifierOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ImmutableOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ImmutableOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `SharedConstOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `SharedConstOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `SharedInoutOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `SharedInoutOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `SharedOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `SharedOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `ConstOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `ConstOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `InoutOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `InoutOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `MutableOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `MutableOf(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(char, wchar, dchar, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(byte, ubyte, short, ushort, int, uint, long, ulong, float, double, real, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(cfloat, cdouble, creal, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(ifloat, idouble, ireal, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(float, double, real, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(ubyte, ushort, uint, ulong, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(byte, short, int, long, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!(byte, ubyte, short, ushort, int, uint, long, ulong, "Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!("Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!("Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8632): Error: template instance `hasUDA!("Issue20054")` does not match template declaration `hasUDA(alias symbol, alias attribute)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `Demangle(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `Demangle(T)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `staticMap(alias F, T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `staticMap(alias F, T...)` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8755): Error: `module object` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8756): Error: `module object` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(8761): Error: `X[0]` is not a type
+(spec:1) /usr/include/dlang/dmd/std/conv.d(626): Error: no property `opCast` for type `int`
+(spec:2) /usr/include/dlang/dmd/std/range/primitives.d(2185): Error: no property `length` for type `int`
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(173): Error: template `std.range.primitives.empty` cannot deduce function from argument types `!()(int)`, candidates are:
+/usr/include/dlang/dmd/std/range/primitives.d(2184):        `empty(T)(auto ref scope T a)`
+  with `T = int`
+  must satisfy the following constraint:
+`       is(typeof(a.length) : size_t)`
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(173): Error: template instance `ReturnType!(__error)` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(174): Error: template `std.range.primitives.front` cannot deduce function from argument types `!()(int)`, candidates are:
+/usr/include/dlang/dmd/std/range/primitives.d(2425):        `front(T)(return scope inout(T)[] a)`
+/usr/include/dlang/dmd/std/range/primitives.d(2454):        `front(T)(scope const(T)[] a)`
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(175): Error: template `std.range.primitives.front` cannot deduce function from argument types `!()(int)`, candidates are:
+/usr/include/dlang/dmd/std/range/primitives.d(2425):        `front(T)(return scope inout(T)[] a)`
+/usr/include/dlang/dmd/std/range/primitives.d(2454):        `front(T)(scope const(T)[] a)`
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(175): Error: template instance `ReturnType!(__error)` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(176): Error: template `std.range.primitives.popFront` cannot deduce function from argument types `!()(int)`, candidates are:
+/usr/include/dlang/dmd/std/range/primitives.d(2231):        `popFront(T)(ref scope inout(T)[] a)`
+/usr/include/dlang/dmd/std/range/primitives.d(2254):        `popFront(C)(ref scope inout(C)[] str)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!string` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = string`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!string` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5763): Error: static assert:  "string is not a character type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!string` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!string` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5575): Error: template instance `std.traits.AliasThisTypeOf!string` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = string`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5575): Error: template instance `std.traits.AliasThisTypeOf!string` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5585): Error: static assert:  "string is not boolean type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6014): Error: template instance `std.traits.BooleanTypeOf!string` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6014): Error: template instance `std.traits.BooleanTypeOf!string` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5907): Error: static assert:  "int is not a string type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!int` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!int` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!int` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = int`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!int` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5839): Error: static assert:  "int is not a dynamic array"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6759): Error: template instance `std.traits.DynamicArrayTypeOf!int` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6759): Error: template instance `std.traits.DynamicArrayTypeOf!int` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!int` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = int`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!int` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7811): Error: `cent` and `ucent` types not implemented
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!int` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = int`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!int` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5763): Error: static assert:  "int is not a character type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!int` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!int` cannot resolve forward reference
+(spec:3) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong i`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong lwr`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5907): Error: static assert:  "Result is not a string type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `bool function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `bool function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `bool function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `bool function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `char function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `char function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `char function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `char function(std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1621): Error: need `this` for `empty` of type `pure nothrow @nogc @property @safe bool()`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong lwr`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `char function(inout(int)) pure nothrow @nogc @safe`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `char function(inout(int)) pure nothrow @nogc @safe`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7251): Error: `char function(inout(int)) pure nothrow @nogc @safe` is a `pointer` definition and cannot be modified
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7251): Error: `char function(inout(int)) pure nothrow @nogc @safe` is a `pointer` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(2254): Error: `char function(inout(int)) pure nothrow @nogc @safe` is a `pointer` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(2254): Error: `char function(inout(int)) pure nothrow @nogc @safe` is a `pointer` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `char function(inout(int)) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `char function(inout(int)) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!(char[])` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = char[]`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!(char[])` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5834): Error: `char[]` is not an expression
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!ulong` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = ulong`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!ulong` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7208): Error: `char` is a `char` definition and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!char` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = char`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!char` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5839): Error: static assert:  "char is not a dynamic array"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6759): Error: template instance `std.traits.DynamicArrayTypeOf!char` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6759): Error: template instance `std.traits.DynamicArrayTypeOf!char` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(10, char, cast(LetterCase)true, int).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(3688): Error: no property `opAssign` for type `std.conv.emplaceRef!(char, char, char).emplaceRef.S`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(3688): Error: no property `opAssign` for type `std.conv.emplaceRef!(char, char, char).emplaceRef.S`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(3689): Error: no property `opAssign` for type `std.conv.emplaceRef!(char, char, char).emplaceRef.S`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(3689): Error: no property `opAssign` for type `std.conv.emplaceRef!(char, char, char).emplaceRef.S`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!uint` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = uint`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!uint` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!uint` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = uint`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!uint` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5763): Error: static assert:  "uint is not a character type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!uint` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!uint` cannot resolve forward reference
+(spec:3) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong i`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong lwr`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5907): Error: static assert:  "Result is not a string type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1621): Error: need `this` for `empty` of type `pure nothrow @nogc @property @safe bool()`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(16, char, cast(LetterCase)false, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong lwr`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong i`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong lwr`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5907): Error: static assert:  "Result is not a string type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `bool function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `char function(std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1621): Error: need `this` for `empty` of type `pure nothrow @nogc @property @safe bool()`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(16, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong lwr`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong i`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong lwr`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5907): Error: static assert:  "Result is not a string type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `bool function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `bool function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `bool function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `bool function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `char function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `char function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `char function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `char function(std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1621): Error: need `this` for `empty` of type `pure nothrow @nogc @property @safe bool()`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(2, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong lwr`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong i`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(6954): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(6954):        missing argument for parameter #1: `ulong lwr`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5907): Error: static assert:  "Result is not a string type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6432): Error: template instance `std.traits.StringTypeOf!(Result)` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `bool function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `bool function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `bool function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `bool function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `char function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `char function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `char function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `char function(std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1621): Error: need `this` for `empty` of type `pure nothrow @nogc @property @safe bool()`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7714): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7714):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(109): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(109):        missing argument for parameter #1: `ulong lwr`
+(spec:2) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opIndex(ulong i)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong i`
+(spec:1) /usr/include/dlang/dmd/std/array.d(127): Error: function `std.conv.toChars!(8, char, cast(LetterCase)true, uint).toChars.Result.opSlice(ulong lwr, ulong upr)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/array.d(127):        missing argument for parameter #1: `ulong lwr`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!(const(char))` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = const(char)`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!(const(char))` cannot resolve forward reference
+(spec:3) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!(const(char)[])` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = const(char)[]`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(5829): Error: template instance `std.traits.AliasThisTypeOf!(const(char)[])` cannot resolve forward reference
+(spec:3) /usr/include/dlang/dmd/std/traits.d(5834): Error: `const(char)[]` is not an expression
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `bool function(const(char)[] r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `bool function(const(char)[] r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `bool function(const(char)[] r) pure nothrow @nogc @safe`
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `bool function(const(char)[] r) pure nothrow @nogc @safe`
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `dchar function(const(char)[] r) pure @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `dchar function(const(char)[] r) pure @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `dchar function(const(char)[] r) pure @safe`
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `dchar function(const(char)[] r) pure @safe`
+(spec:4) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:4) /usr/include/dlang/dmd/std/traits.d(7974): Error: no property `min_normal` for type `ulong`
+(spec:4) /usr/include/dlang/dmd/std/traits.d(7974): Error: no property `min_normal` for type `immutable(ubyte)`
+(spec:4) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!(immutable(ubyte))` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = immutable(ubyte)`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:4) /usr/include/dlang/dmd/std/traits.d(5627): Error: template instance `std.traits.AliasThisTypeOf!(immutable(ubyte))` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!dchar` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = dchar`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!dchar` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `bool function(string r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `bool function(string r) pure nothrow @nogc @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda2` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `bool function(string r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `bool function(string r) pure nothrow @nogc @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7315): Error: no property `opCall` for type `dchar function(string r) pure @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7318): Error: no property `opCall` for type `dchar function(string r) pure @safe`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7251): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:2) /usr/include/dlang/dmd/std/traits.d(7256): Error: `T[0]` is not a type
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2254): Error: `__lambda4` is not an lvalue and cannot be modified
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2258): Error: no property `opCall` for type `dchar function(string r) pure @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2262): Error: no property `opCall` for type `dchar function(string r) pure @safe`
+(spec:3) /usr/include/dlang/dmd/std/traits.d(2266): Error: `func[0]` is not a type
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1621): Error: no property `empty` for type `string`, perhaps `import std.range;` is needed?
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1264): Error: template `std.range.primitives.front` cannot deduce function from argument types `!()(immutable(char))`, candidates are:
+/usr/include/dlang/dmd/std/range/primitives.d(2425):        `front(T)(return scope inout(T)[] a)`
+  with `T = char`
+  must satisfy one of the following constraints:
+`       !isAutodecodableString!(T[])
+       isAggregateType!(T[])`
+/usr/include/dlang/dmd/std/range/primitives.d(2454):        `front(T)(scope const(T)[] a)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!void` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = void`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!void` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(5763): Error: static assert:  "void is not a character type"
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!void` error instantiating
+(spec:1) /usr/include/dlang/dmd/std/traits.d(6379): Error: template instance `std.traits.CharTypeOf!void` cannot resolve forward reference
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!(immutable(char))` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = immutable(char)`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!(immutable(char))` cannot resolve forward reference
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7315): Error: function `std.stdio.fputwc_unlocked(dchar, _IO_FILE*)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7315):        missing argument for parameter #1: `dchar`
+(spec:1) /usr/include/dlang/dmd/std/traits.d(7318): Error: function `std.stdio.fputwc_unlocked(dchar, _IO_FILE*)` is not callable using argument types `()`
+/usr/include/dlang/dmd/std/traits.d(7318):        missing argument for parameter #1: `dchar`
+(spec:1) /usr/include/dlang/dmd/std/range/primitives.d(1264): Error: template `std.range.primitives.front` cannot deduce function from argument types `!()(char)`, candidates are:
+/usr/include/dlang/dmd/std/range/primitives.d(2425):        `front(T)(return scope inout(T)[] a)`
+/usr/include/dlang/dmd/std/range/primitives.d(2454):        `front(T)(scope const(T)[] a)`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!char` does not match template declaration `AliasThisTypeOf(T)`
+  with `T = char`
+  must satisfy the following constraint:
+`       isAggregateType!T`
+(spec:2) /usr/include/dlang/dmd/std/traits.d(5753): Error: template instance `std.traits.AliasThisTypeOf!char` cannot resolve forward reference
+foobar.d(25): Error: template `actions()` does not have property `even`
+foobar.d(26): Error: template `actions()` does not have property `odd`
+foobar.d(30): Error: template instance `foobar.patternmatch!(actions, classify)` error instantiating

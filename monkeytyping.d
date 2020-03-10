@@ -14,10 +14,12 @@ static assert(uglyzip!(AliasSeq!(1,2,3,4,5,6,7,8,9,10))==AliasSeq!(
 		Alias!(8),Alias!(4),Alias!(7),Alias!(5),Alias!(6)));
 		
 template definitions(T){
-	template foo(T){ alias foo=AliasSeq!(__traits(derivedMembers,T));}
-	template bar(T){ alias bar=AliasSeq!(typeof(T.tupleof));}
+	template foo(T){ alias foo=FieldNameTuple!T;}
+			//AliasSeq!(__traits(derivedMembers,T));}
+	template bar(T){ alias bar=Fields!T;}
+			//AliasSeq!(typeof(T.tupleof));}
 	unittest{
-		struct point{int x; int y;}
+		struct point{int x; int y; enum hi;}
 		alias foo_ = foo!(point);
 		static assert(foo_ == AliasSeq!("x","y"));
 		alias bar_ = bar!(point);
@@ -136,15 +138,6 @@ template subtypelist(types...){
 	alias subtypelist = Filter!(f,pairgen!(types.length-1));
 }
 
-auto operation(string op,T,U)(auto ref T,auto ref U){
-	static if(issubtype!(T,U)){
-		
-	}
-	else{ static if(issubtype!(U,T)){
-	
-	}}
-}
-
 unittest{
 	struct x_{int x;}
 	struct y_{int y;}
@@ -155,7 +148,74 @@ unittest{
 	static foreach(p;list){
 		writeln(p._1.stringof~", "~p._2.stringof);}
 }
-	
+
+template uglysubtype(T,U){
+	static if(issubtype!(T,U)){alias uglysubtype=U;}
+	else {alias uglysubtype=T;}
+}
+
+//uglysubtype!(T,U)
+auto ref operation(string op,T,U)(auto ref T a,auto ref U b){
+	static if(issubtype!(T,U)){
+		U foo= void;
+		static foreach(bar; definitions!U){
+			mixin("foo.",bar.name,"= a.",bar.name,";");}
+		return mixin("foo",op,"b");
+	}
+	else{ static if(issubtype!(U,T)){
+		T foo = void;
+		static foreach(bar; definitions!T){
+			mixin("foo.",bar.name,"= b.",bar.name,";");}
+		return mixin("a",op,"foo");
+		}
+			else {static assert(false,"these types are not combadible");}
+	}
+}
+
+
+
+unittest{
+	struct vec2{
+		int x; int y;
+		vec2 opBinary(string op:"+")(vec2 a){
+			return vec2(x+a.x,y+a.y);
+		}
+	}
+	struct cow{
+		int x; int y;
+		void moo(){ writeln("moo ",x," ",y);}
+		void opBinary(string op:"+")(cow a){
+			moo;
+			a.moo;
+		}
+		//uglysubtype!(cow,T)
+		auto ref opBinary(string op,T)(auto ref T a){
+			return operation!op(this,a);}
+		
+		ref typeof(this) opAssign(T)(auto ref T a){
+			static if(issubtype!(cow,T)){
+				static foreach(foo;definitions!T){
+					mixin(foo.name,"= a.",foo.name,";");
+			}} else { static assert(issubtype!(T,cow),"These types airnt compadible");
+				static foreach(foo;definitions!cow){
+					mixin(foo.name,"= a.",foo.name,";");
+			}}
+			return this;
+		}
+		ref typeof(this) opOpAssign(string op,T)(auto ref T a){
+			mixin("this = this",op,"a;");
+			return this;
+		}
+	}
+	cow foo;
+	cow bar;
+	foo + bar;
+	foo + vec2(10,0);
+	bar += vec2(0,33);
+	bar += vec2(50,0);
+	foo + bar;
+}
+
 void main(){
 	writeln("hi");
 }
