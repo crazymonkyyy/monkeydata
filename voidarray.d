@@ -50,7 +50,7 @@ struct mypointer(size_t size){
 		static if(size==0){
 			subbyte = a.subbyte;}
 	}
-	void set(T)(T foo){
+	void set(T)(ref T foo){
 		static assert(mysizeof!T <= size,"You are attempting to set data not nessery allocated with void arrays");
 		static if(mysizeof!T==0){
 			static if(size !=0){enum subbyte=0;}//grabing a bool from a a different data type should do something, even if its a bit wonky
@@ -62,7 +62,11 @@ struct mypointer(size_t size){
 					~"default: assert(false);");}
 		}
 		else{
+			//pragma(msg,"set:"~ T.stringof);
 			*(cast(T*)point)=foo;
+			//import std.stdio;
+			//foo.writeln;
+			//(cast(T)*point).writeln;
 		}
 	}
 	T get(T)(){
