@@ -17,7 +17,6 @@ struct mypointer(size_t size){
 				bool,"b6",1,
 				bool,"b7",1,));
 		}
-		
 	}
 	void opUnary(string op:"++")(){
 		point+=size;
@@ -82,6 +81,21 @@ struct mypointer(size_t size){
 		}
 		else{
 			return *cast(T*)(point);}
+	}
+	int opCmp(ref mypointer a){
+		import opoverloadulti;
+		static if(size==0){
+			static assert(false,"not tested");
+			if(point.opcmp(a.point)==0){
+				return subbyte.opcmp(a.subbype);}
+			else{
+				return point.opcmp(a.point);}
+		} else {
+			return point.opcmp(a.point);}
+	}
+	bool opEquals(ref mypointer a){
+		import opoverloadulti;
+		return this.opequal(a);
 	}
 }
 

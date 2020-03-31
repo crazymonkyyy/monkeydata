@@ -32,7 +32,13 @@ struct vec2pointy_{
 	void opAssign(T)(ref T a){
 		static foreach(t; definitions!T){
 			mixin(t.name~" = &a."~t.name~";");}}
-	
+	int opCmp(ref typeof(this) a){
+		return x.opCmp(a.x);
+	}
+	void opEquals(ref typeof(this) a){
+		import opoverloadulti;
+		this.opequal(a);
+	}
 	void set(T)(T setter){
 		warn!T;
 		//x.set!(T.x)(setter.x);
@@ -116,7 +122,12 @@ struct vec2pointy{
 		grey--;return this;}
 	void movepointer(int x){
 		grey + x;}
-	
+	int opCmp(typeof(this) a){
+		return grey.opCmp(a.grey);}
+	bool opEquals(typeof(this) a){
+		import opoverloadulti;
+		return this.opequal(a);
+	}
 	vec2pointy tovec2pointy(){// my subtype system returns duplicates so I'm rolling with it
 		return vec2pointy(grey.x,grey.y);}
 	vec2 tovec2(){
@@ -252,6 +263,7 @@ unittest{
 	bar++;
 	assert(bar==foo[1]);
 	assert(foo[1]>foo[0]);
+	assert(foo[0]<foo[1]);
 }
 
 
