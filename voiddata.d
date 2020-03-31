@@ -1,8 +1,8 @@
 struct mypointer(size_t size){
 	import typeless;
-	ubyte* point;
+	ubyte* point=null;
 	static if(size==0){
-		ubyte subbyte;
+		ubyte subbyte=null;
 		
 		struct bool_{
 			import std.bitmanip;

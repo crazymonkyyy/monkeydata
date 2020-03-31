@@ -13,7 +13,7 @@ import std.stdio;
 //mixin monkeydata!(monkeytypes: vec3,vec2)
 
 struct vec2pointy_{
-	import voidarray;
+	import voiddata;
 	import monkeytyping;
 	mypointer!4 x;
 	mypointer!4 y;
@@ -131,8 +131,8 @@ struct vec2pointy{
 		grey.y=typeof(grey.y)();grey.y=y_;
 	}
 	this(typeof(grey.x) x_,typeof(grey.y) y_){
-		grey.x=x_;
-		grey.y=y_;
+		grey.x=typeof(grey.x)();grey.x=x_;
+		grey.y=typeof(grey.y)();grey.y=y_;
 	}
 	void setpointers(T)(ref T litteral){
 		static assert(issubtype!(mylitteral,T));
@@ -237,6 +237,21 @@ unittest{
 	assert(foo.tovec2 == vec2(40,600));
 }
 
-
+struct vec2soa_(size_t n=512){
+	import voiddata;
+	voidarray!(4,n) x;
+	voidarray!(4,n) y;
+	vec2pointy opIndex(size_t i){
+		return vec2pointy(x[i],y[i]);
+	}
+	size_t opDollar(){ return n-1;}
+}
+unittest{
+	vec2soa_!(100) foo;
+	auto bar=foo[0];
+	bar++;
+	assert(bar==foo[1]);
+	assert(foo[1]>foo[0]);
+}
 
 
