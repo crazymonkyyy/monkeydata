@@ -175,4 +175,3 @@ unittest{
 	//iterate(foo[time(hour(0),min(0))..time(hour(24),min(0))]);
 	//foo[time(hour(0),min(0))..time(hour(24),min(0))].each!(each!volitaryovertime);
 }
-void main(){}

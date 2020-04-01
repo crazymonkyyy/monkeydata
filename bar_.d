@@ -156,4 +156,4 @@ unittest{
 		(mr a)=>writeln(a) );
 	foo[].iterate(bar);
 }
-void main(){}
+

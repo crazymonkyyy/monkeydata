@@ -150,6 +150,12 @@ struct vec2pointy{
 		static foreach(def; definitions!T){
 			mixin("grey."~def.name~" =&litteral."~def.name~";");
 	}}
+	void copypointers(T)(ref T pointy){
+		static assert(is(typeof(T.ispointy)));
+		static assert(issubtype!(mylitteral,T.mylitteral));
+		static foreach(def;definitions!(T.mylitteral)){
+			mixin("grey."~def.name~" = pointy.grey."~def.name~";");
+	}}
 }
 
 unittest{
@@ -264,6 +270,121 @@ unittest{
 	assert(bar==foo[1]);
 	assert(foo[1]>foo[0]);
 	assert(foo[0]<foo[1]);
+	assert(! (foo[1]<foo[0]));
+	assert(! (foo[0]>foo[1]));
+}
+struct vec2soaslice{
+	size_t start__;
+	vec2pointy start;
+	size_t end__;
+	vec2pointy end;
+	vec2pointy front(){return start;}
+	void popFront(){start++;}
+	bool empty(){return start > end;}
+	
+	void opAssign(typeof(this) a){
+		start__=a.start__;
+		end__=a.end__;
+		start.copypointers(a.start);
+		end.copypointers(a.end);
+	}
 }
 
+unittest{
+	vec2soaslice foo;
+	foo.popFront;
+	assert(foo.empty);
+}
+struct vec2aosoaslice(bool expanding,size_t soa=512){
+	vec2aosoa!soa* parent;
+	size_t start;
+	static if(expanding){
+		size_t end(){return(*parent).count-1;}}
+	else{
+		size_t end;}
+	import lazynullable;
+	nullable!vec2soaslice lasthead;
+	size_t segment(){
+		size_t natspilt= (start/soa+1)*soa-1;
+		import std.algorithm;
+		return min(natspilt,end);
+	}
+	vec2soaslice front(){
+		if(lasthead.isnull){
+			auto seg=segment;
+			lasthead=vec2soaslice(start,(*parent)[start],seg,(*parent)[seg]);
+		}
+		return lasthead;
+	}
+	void popFront(){
+		start=lasthead.end__;
+		start++;
+		lasthead.isnull=true;
+	}
+	bool empty(){ return start>end || (*parent).count ==0;}
+}
 
+struct vec2aosoa(size_t soa=512){
+	vec2soa_!soa[] chunks;
+	size_t count;
+	struct dollar{}
+	dollar opDollar(){return dollar();}
+	vec2pointy opIndex(size_t i){
+		//writeln(i," ",count);
+		assert(i<count,"accessing random data is frowned on, use [0..i] 
+				if you intended to create i`th T, or [$..i] if you intended 
+				to make i elements");
+		return (chunks[i/soa])[i%soa];
+	}
+	vec2pointy opIndex(dollar i){return this[count-1];}
+	vec2aosoaslice!(true,soa) opSlice(){return this[0..$];}
+	vec2aosoaslice!(false,soa) opSlice(size_t i,size_t j){
+		return vec2aosoaslice!(false,soa)(&this,i,j);
+	}
+	vec2aosoaslice!(true,soa) opSlice(size_t i,dollar j){
+		return vec2aosoaslice!(true,soa)(&this,i);
+	}
+	vec2aosoaslice!(false,soa) opSlice(dollar i,size_t j){
+		auto c=count;
+		expand(count+j);
+		return this[c..count-1];
+	}
+	void expand(size_t i){
+		if(i>count){
+			if(i > chunks.length*soa){ chunks.length= (i/soa)+1;}
+			count=i;
+		}
+	}
+	alias opSlice this;
+}
+import std.stdio;
+unittest{
+	vec2aosoa!() foo;
+	assert(foo.count==0);
+	assert(foo[].start==0);
+	assert(foo[].empty);
+	assert(foo.chunks.length==0);
+	foo[$..100];
+	assert(foo.count==100);
+	assert(foo.chunks.length==1);
+	foo[$..500];
+	assert(foo.count==600);
+	assert(foo.chunks.length==2);
+	int bar;
+	struct x_{int x;}
+	void foobar_(T)(T a){bar++;}
+	void foobar(T)(T a){a=x_(bar);bar++;}
+	import std.algorithm;
+	foreach(f;foo){foobar_(f);}
+	assert(bar==2);
+	bar=0;
+	foreach(f;foo){foreach(b;f){foobar(b);}}
+	assert(bar==600);
+	assert(foo[366].tovec2==vec2(366,0));
+	struct y_{int y;}
+	foreach(f;foo[$..1234]){foreach(b;f){b=y_(5);}}
+	assert(foo.count==1834);
+	assert(foo[599].tovec2==vec2(599,0));
+	assert(foo[600].tovec2==vec2(0,5));
+}
+void main(){}
