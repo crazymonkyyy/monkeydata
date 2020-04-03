@@ -263,6 +263,11 @@ struct vec2soa_(size_t n=512){
 	}
 	size_t opDollar(){ return n-1;}
 }
+struct vec2soa(size_t n=512){
+	int[n] x;
+	int[n] y;
+	this() @disable;
+}
 unittest{
 	vec2soa_!(100) foo;
 	auto bar=foo[0];
@@ -273,11 +278,14 @@ unittest{
 	assert(! (foo[1]<foo[0]));
 	assert(! (foo[0]>foo[1]));
 }
-struct vec2soaslice{
+struct vec2soaslice(size_t soa=512){
 	size_t start__;
 	vec2pointy start;
 	size_t end__;
 	vec2pointy end;
+	
+	vec2soa_!soa* mychunk;
+	
 	vec2pointy front(){return start;}
 	void popFront(){start++;}
 	bool empty(){return start > end;}
@@ -291,7 +299,7 @@ struct vec2soaslice{
 }
 
 unittest{
-	vec2soaslice foo;
+	vec2soaslice!() foo;
 	foo.popFront;
 	assert(foo.empty);
 }
@@ -303,16 +311,17 @@ struct vec2aosoaslice(bool expanding,size_t soa=512){
 	else{
 		size_t end;}
 	import lazynullable;
-	nullable!vec2soaslice lasthead;
+	nullable!(vec2soaslice!soa) lasthead;
 	size_t segment(){
 		size_t natspilt= (start/soa+1)*soa-1;
 		import std.algorithm;
 		return min(natspilt,end);
 	}
-	vec2soaslice front(){
+	vec2soaslice!soa front(){
 		if(lasthead.isnull){
 			auto seg=segment;
-			lasthead=vec2soaslice(start,(*parent)[start],seg,(*parent)[seg]);
+			auto chunk=&(*parent).chunks[(start+1)/soa];
+			lasthead=vec2soaslice!soa(start,(*parent)[start],seg,(*parent)[seg],chunk);
 		}
 		return lasthead;
 	}
@@ -386,5 +395,33 @@ unittest{
 	assert(foo.count==1834);
 	assert(foo[599].tovec2==vec2(599,0));
 	assert(foo[600].tovec2==vec2(0,5));
+	foo[0]=x_(1000);
+	
+	void simdtest(ref vec2soa!512 soa){
+		int[2] x=soa.x[0..2];
+		//int[2] y=*cast(int[2]*)(&soa.y);
+		int[2] wtf=[1,2];
+		int[2] no;
+		/*(asm{
+			movq XMM0, wtf;
+			movq no , XMM0;
+		}*/
+		"hi".writeln;
+		no.writeln;
+	}
+	
+	foreach(fizz; foo[]){
+		if(fizz.end__-fizz.start__==511){
+			simdtest(*cast(vec2soa!512*)fizz.mychunk);
+		} else {
+			foreach(a;fizz){
+				a=y_(a.tovec2.x+a.tovec2.y);
+	}}}
+	
+	foreach(f;foo[0..10]){foreach(b;f){
+		b.tovec2.writeln;
+		//if (b.tovec2.x>0){assert(b.tovec2.x==b.tovec2.y);}
+		//else{assert(b.tovec2==vec2(0,5));}
+	}}
 }
 void main(){}
