@@ -263,13 +263,17 @@ struct vec2soa_(size_t n=512){
 	}
 	size_t opDollar(){ return n-1;}
 }
-struct vec2soa(size_t n=512){
-	int[n] x;
-	int[n] y;
-	this() @disable;
+union vec2soa(size_t n=512){
+	struct litteralsoa{
+		int[n] x;
+		int[n] y;
+	}
+	vec2soa_!n voidsoa;
+	litteralsoa litteral;
+	alias voidsoa this;
 }
 unittest{
-	vec2soa_!(100) foo;
+	vec2soa!(100) foo;
 	auto bar=foo[0];
 	bar++;
 	assert(bar==foo[1]);
@@ -284,7 +288,7 @@ struct vec2soaslice(size_t soa=512){
 	size_t end__;
 	vec2pointy end;
 	
-	vec2soa_!soa* mychunk;
+	vec2soa!soa* mychunk;
 	
 	vec2pointy front(){return start;}
 	void popFront(){start++;}
@@ -295,6 +299,7 @@ struct vec2soaslice(size_t soa=512){
 		end__=a.end__;
 		start.copypointers(a.start);
 		end.copypointers(a.end);
+		mychunk=a.mychunk;
 	}
 }
 
@@ -320,8 +325,11 @@ struct vec2aosoaslice(bool expanding,size_t soa=512){
 	vec2soaslice!soa front(){
 		if(lasthead.isnull){
 			auto seg=segment;
-			auto chunk=&(*parent).chunks[(start+1)/soa];
-			lasthead=vec2soaslice!soa(start,(*parent)[start],seg,(*parent)[seg],chunk);
+			auto chunk= &(*parent).chunks[(start+1)/soa];
+			lasthead=vec2soaslice!soa(
+					start,(*parent)[start],
+					seg,(*parent)[seg],
+					chunk);
 		}
 		return lasthead;
 	}
@@ -334,7 +342,7 @@ struct vec2aosoaslice(bool expanding,size_t soa=512){
 }
 
 struct vec2aosoa(size_t soa=512){
-	vec2soa_!soa[] chunks;
+	vec2soa!soa[] chunks;
 	size_t count;
 	struct dollar{}
 	dollar opDollar(){return dollar();}
@@ -390,38 +398,45 @@ unittest{
 	foreach(f;foo){foreach(b;f){foobar(b);}}
 	assert(bar==600);
 	assert(foo[366].tovec2==vec2(366,0));
+	assert(foo[512].tovec2==vec2(512,0));
+	foo[512].tovec2.writeln;
 	struct y_{int y;}
-	foreach(f;foo[$..1234]){foreach(b;f){b=y_(5);}}
+	foreach(f;foo[$..1234]){foreach(b;f){b=vec2(0,5);}}
 	assert(foo.count==1834);
 	assert(foo[599].tovec2==vec2(599,0));
 	assert(foo[600].tovec2==vec2(0,5));
 	foo[0]=x_(1000);
 	
-	void simdtest(ref vec2soa!512 soa){
-		int[2] x=soa.x[0..2];
-		//int[2] y=*cast(int[2]*)(&soa.y);
-		int[2] wtf=[1,2];
-		int[2] no;
-		/*(asm{
-			movq XMM0, wtf;
-			movq no , XMM0;
-		}*/
-		"hi".writeln;
-		no.writeln;
+	void simdtest(vec2soa!512* soa){
+		int[2]* x=cast(int[2]*)(soa.litteral.x);
+		int[2]* y=cast(int[2]*)(soa.litteral.y);
+		for(int i=0;i<256;i++){
+			int[2] xx=*x;
+			int[2] yy=*y;
+			asm{
+				movq XMM0, yy;
+				movq XMM1, xx;
+				paddd XMM0,XMM1;
+				movq yy, XMM0;
+			}
+			*x=xx;
+			*y=yy;
+			x++;
+			y++;
+		}
 	}
-	
 	foreach(fizz; foo[]){
 		if(fizz.end__-fizz.start__==511){
-			simdtest(*cast(vec2soa!512*)fizz.mychunk);
+			simdtest(fizz.mychunk);
 		} else {
 			foreach(a;fizz){
 				a=y_(a.tovec2.x+a.tovec2.y);
 	}}}
 	
-	foreach(f;foo[0..10]){foreach(b;f){
-		b.tovec2.writeln;
-		//if (b.tovec2.x>0){assert(b.tovec2.x==b.tovec2.y);}
-		//else{assert(b.tovec2==vec2(0,5));}
+	foreach(f;foo[]){foreach(b;f){
+		//b.tovec2.writeln;
+		if (b.tovec2.x>0){assert(b.tovec2.x==b.tovec2.y);}
+		else{assert(b.tovec2==vec2(0,5));}
 	}}
 }
 void main(){}
