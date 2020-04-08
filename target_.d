@@ -101,6 +101,7 @@ struct vec2pointy{
 	}
 	ref typeof(this) opAssign(T)(T a) if (hasMember!(T,"ispointy")){
 		this = a.tolitteral;
+		return this;
 	}
 	ref typeof(this) opAssign(T)(T a) if (!hasMember!(T,"ispointy")){
 		static if(issubtype!(mylitteral,T)){
@@ -263,17 +264,8 @@ struct vec2soa_(size_t n=512){
 	}
 	size_t opDollar(){ return n-1;}
 }
-union vec2soa(size_t n=512){
-	struct litteralsoa{
-		int[n] x;
-		int[n] y;
-	}
-	vec2soa_!n voidsoa;
-	litteralsoa litteral;
-	alias voidsoa this;
-}
 unittest{
-	vec2soa!(100) foo;
+	vec2soa_!(100) foo;
 	auto bar=foo[0];
 	bar++;
 	assert(bar==foo[1]);
@@ -283,14 +275,16 @@ unittest{
 	assert(! (foo[0]>foo[1]));
 }
 struct vec2soaslice(size_t soa=512){
+	alias mypointy=vec2pointy;
+	alias mysoa=vec2soa_!soa;
 	size_t start__;
-	vec2pointy start;
+	mypointy start;
 	size_t end__;
-	vec2pointy end;
+	mypointy end;
 	
-	vec2soa!soa* mychunk;
+	mysoa* mychunk;
 	
-	vec2pointy front(){return start;}
+	mypointy front(){return start;}
 	void popFront(){start++;}
 	bool empty(){return start > end;}
 	
@@ -301,6 +295,16 @@ struct vec2soaslice(size_t soa=512){
 		end.copypointers(a.end);
 		mychunk=a.mychunk;
 	}
+	bool isfull(){return (end__-start__==soa-1);}
+	auto simdcast(){
+		assert(isfull);
+		struct simdfriendly{
+			int* x;
+			int* y;
+		}
+		static assert(simdfriendly.sizeof==typeof(start.grey).sizeof);
+		return cast(simdfriendly)(start.grey);
+	}
 }
 
 unittest{
@@ -309,24 +313,27 @@ unittest{
 	assert(foo.empty);
 }
 struct vec2aosoaslice(bool expanding,size_t soa=512){
-	vec2aosoa!soa* parent;
+	alias myaosoa=vec2aosoa!soa;
+	alias mysoaslice=vec2soaslice!soa;
+	
+	myaosoa* parent;
 	size_t start;
 	static if(expanding){
 		size_t end(){return(*parent).count-1;}}
 	else{
 		size_t end;}
 	import lazynullable;
-	nullable!(vec2soaslice!soa) lasthead;
+	nullable!(mysoaslice) lasthead;
 	size_t segment(){
 		size_t natspilt= (start/soa+1)*soa-1;
 		import std.algorithm;
 		return min(natspilt,end);
 	}
-	vec2soaslice!soa front(){
+	mysoaslice front(){
 		if(lasthead.isnull){
 			auto seg=segment;
 			auto chunk= &(*parent).chunks[(start+1)/soa];
-			lasthead=vec2soaslice!soa(
+			lasthead=mysoaslice(
 					start,(*parent)[start],
 					seg,(*parent)[seg],
 					chunk);
@@ -342,26 +349,29 @@ struct vec2aosoaslice(bool expanding,size_t soa=512){
 }
 
 struct vec2aosoa(size_t soa=512){
-	vec2soa!soa[] chunks;
+	alias mypointy=vec2pointy;
+	alias myslice=vec2aosoaslice;
+	alias mychunk=vec2soa_!soa;
+	mychunk[] chunks;
 	size_t count;
 	struct dollar{}
 	dollar opDollar(){return dollar();}
-	vec2pointy opIndex(size_t i){
+	mypointy opIndex(size_t i){
 		//writeln(i," ",count);
 		assert(i<count,"accessing random data is frowned on, use [0..i] 
 				if you intended to create i`th T, or [$..i] if you intended 
 				to make i elements");
 		return (chunks[i/soa])[i%soa];
 	}
-	vec2pointy opIndex(dollar i){return this[count-1];}
-	vec2aosoaslice!(true,soa) opSlice(){return this[0..$];}
-	vec2aosoaslice!(false,soa) opSlice(size_t i,size_t j){
-		return vec2aosoaslice!(false,soa)(&this,i,j);
+	mypointy opIndex(dollar i){return this[count-1];}
+	myslice!(true,soa) opSlice(){return this[0..$];}
+	myslice!(false,soa) opSlice(size_t i,size_t j){
+		return myslice!(false,soa)(&this,i,j);
 	}
-	vec2aosoaslice!(true,soa) opSlice(size_t i,dollar j){
-		return vec2aosoaslice!(true,soa)(&this,i);
+	myslice!(true,soa) opSlice(size_t i,dollar j){
+		return myslice!(true,soa)(&this,i);
 	}
-	vec2aosoaslice!(false,soa) opSlice(dollar i,size_t j){
+	myslice!(false,soa) opSlice(dollar i,size_t j){
 		auto c=count;
 		expand(count+j);
 		return this[c..count-1];
@@ -371,6 +381,10 @@ struct vec2aosoa(size_t soa=512){
 			if(i > chunks.length*soa){ chunks.length= (i/soa)+1;}
 			count=i;
 		}
+	}
+	void remove(size_t i){
+		this[i]=this[$];
+		count--;
 	}
 	alias opSlice this;
 }
@@ -407,9 +421,9 @@ unittest{
 	assert(foo[600].tovec2==vec2(0,5));
 	foo[0]=x_(1000);
 	
-	void simdtest(vec2soa!512* soa){
-		int[2]* x=cast(int[2]*)(soa.litteral.x);
-		int[2]* y=cast(int[2]*)(soa.litteral.y);
+	void simdtest(T)(T soa){
+		int[2]* x=cast(int[2]*)(soa.x);
+		int[2]* y=cast(int[2]*)(soa.y);
 		for(int i=0;i<256;i++){
 			int[2] xx=*x;
 			int[2] yy=*y;
@@ -427,7 +441,7 @@ unittest{
 	}
 	foreach(fizz; foo[]){
 		if(fizz.end__-fizz.start__==511){
-			simdtest(fizz.mychunk);
+			simdtest(fizz.simdcast);
 		} else {
 			foreach(a;fizz){
 				a=y_(a.tovec2.x+a.tovec2.y);
@@ -438,5 +452,10 @@ unittest{
 		if (b.tovec2.x>0){assert(b.tovec2.x==b.tovec2.y);}
 		else{assert(b.tovec2==vec2(0,5));}
 	}}
+	
+	assert(foo.count==1834);
+	foo.remove(123);
+	assert(foo[123].tovec2==vec2(0,5));
+	assert(foo.count==1833);
 }
 void main(){}
