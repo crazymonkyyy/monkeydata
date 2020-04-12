@@ -8,3 +8,7 @@ monkeydata
 monkeytyping
 
 *.ps
+
+*.o
+
+errors

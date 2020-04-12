@@ -26,15 +26,27 @@ static string cat(string s,string t){
 	return s ~ t;}
 static string reverse_cat(string s, string t){
 	return t ~ s;}
-static string comma_list(string[] s){
-	if(s.length==1) {return s[0];}
-	else {return s[0].comma_cat~comma_list(s[1..$]);}
+static string struct_construct(string s, string t){
+	return "struct "~s~curly_wrap(t.dup);}
+static string comma_list(string[] s...){
+	if(s.length==1) {return s.dup[0];}
+	else {return s.dup[0].comma_cat~comma_list(s.dup[1..$]);}
 }
 unittest{
-	assert(comma_list(["1","2","3"])=="1,2,3");}
-static string endl_list(string[] s){
+	assert(comma_list("1","2","3")=="1,2,3");
+	assert(comma_list(["1","2","3"])=="1,2,3");
+}
+static string endl_list(string[] s...){
 	if(s.length==0){return "";}
-	else {return s[0].endl_cat~endl_list(s[1..$]);}
+	else {return s.dup[0].endl_cat~endl_list(s.dup[1..$]);}
+}
+static string linebreak_list(string[] s...){
+	if(s.length==0){return "";}
+	else {return s.dup[0]~endl~linebreak_list(s.dup[1..$]);}
+}
+static string import_list(string[] s...){
+	if(s.length==0){return "";}
+	else {return ("import "~s.dup[0]).endl_cat~import_list(s.dup[1..$]);}
 }
 unittest{
 	//mixin(["hi","hello","foo"].endl_list);
@@ -45,8 +57,8 @@ static string[] make_strings(string fun,string import_="",T)(T[] args...){
 	mixin(import_);
 	if(args.length==0){ return [];}
 	else{
-		return mixin("args[0]."~fun) ~
-			make_strings!(fun,import_,T)(args[1..$]);}
+		return mixin("args.dup[0]."~fun) ~
+			make_strings!(fun,import_,T)(args.dup[1..$]);}
 }
 unittest{
 	assert(make_strings!("to!string","import std.conv;")([1,2,3])
@@ -58,7 +70,7 @@ static string case_list(string f,string import_="",string g="noop",T)(T[] args..
 	if(args.length==0){return [];}
 	else{
 		return "case "~mixin("args[0]."~g)~": "~mixin("args[0]."~f)~endl
-				~case_list!(f,g,T)(args[1..$]);}
+				~case_list!(f,g,T)(args.dup[1..$]);}
 }
 
 //unittest{case_list!("noop")(["1","2","3"]).writeln;}
@@ -69,10 +81,13 @@ static string spiltmixin(string f,string g)(string s){
 unittest{
 	assert("hi".spiltmixin!("comma_cat","star_cat")=="hi,hi*");}
 
-struct typeless{
+struct typeless_{
 	int size;
 	string name;
 }
+
+static hash_t xtoHash(ref const typeless_ p) nothrow @trusted{return hash_t(0);}
+
 
 template mysizeof(T){
 	static if (is(T==bool)){enum mysizeof=0;}
@@ -80,12 +95,12 @@ template mysizeof(T){
 }
 
 template maketypeless(alias def){
-	enum maketypeless=typeless(mysizeof!(def.T),def.name);}
+	enum maketypeless=typeless_(mysizeof!(def.T),def.name);}
 unittest{
 	import monkeytyping;
 	struct vec2{int x; int y;}
 	alias foo=definitions!vec2;
-	typeless x_=maketypeless!(foo[0]);
+	typeless_ x_=maketypeless!(foo[0]);
 	assert(x_.size==4);
 	assert(x_.name=="x");
 	enum y_=maketypeless!(foo[1]);
