@@ -35,9 +35,9 @@ struct vec2pointy_{
 	int opCmp(ref typeof(this) a){
 		return x.opCmp(a.x);
 	}
-	void opEquals(ref typeof(this) a){
+	bool opEquals(ref typeof(this) a){
 		import opoverloadulti;
-		this.opequal(a);
+		return this.opequal(a);
 	}
 	void set(T)(T setter){
 		warn!T;
@@ -64,12 +64,6 @@ unittest{
 	vec2pointy_ bar;
 	bar=foo;
 	bar.set(vec2(3,4));
-	/*import std.stdio;
-	writeln(foo.x);
-	writeln(foo.y);
-	writeln(bar.get!vec2);
-	writeln(bar.x.get!int);
-	writeln(bar.y.get!int);*/
 	assert(bar.x.get!int==3);
 	assert(bar.get!vec2 ==vec2(3,4));
 }
@@ -134,11 +128,11 @@ struct vec2pointy{
 	vec2 tovec2(){
 		return grey.get!vec2;}
 	
-	this(ref vec2 construct){
+	this(ref mylitteral construct){
 		grey.x=typeof(grey.x)();grey.x=&construct.x;
 		grey.y=typeof(grey.y)();grey.y=&construct.y;
 	}
-	this(typeof(vec2.x)* x_,typeof(vec2.y)* y_){
+	this(typeof(mylitteral.x)* x_,typeof(mylitteral.y)* y_){
 		grey.x=typeof(grey.x)();grey.x=x_;
 		grey.y=typeof(grey.y)();grey.y=y_;
 	}

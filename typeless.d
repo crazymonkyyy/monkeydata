@@ -86,9 +86,6 @@ struct typeless_{
 	string name;
 }
 
-static hash_t xtoHash(ref const typeless_ p) nothrow @trusted{return hash_t(0);}
-
-
 template mysizeof(T){
 	static if (is(T==bool)){enum mysizeof=0;}
 	else{enum mysizeof=T.sizeof;}
