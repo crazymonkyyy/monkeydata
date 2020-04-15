@@ -95,8 +95,7 @@ mixin template monkeydata(mtypes...){
 						q"[	return vec2pointy(grey.x,grey.y);}]"~endl~
 					q"[vec2 tovec2(){]"~endl~
 						q"[	return grey.get!vec2;}]"~endl,
-					
-					
+						
 					q"[this(ref mylitteral construct){]"~endl~
 						q"[	grey.x=typeof(grey.x)();grey.x=&construct.x;]"~endl~
 						q"[	grey.y=typeof(grey.y)();grey.y=&construct.y;]"~endl~
@@ -131,11 +130,11 @@ mixin template monkeydata(mtypes...){
 					elems.make_strings!("myarray","import mixins;").endl_list,
 					name~"pointy opIndex(size_t i)"~curly_wrap(
 						"return vec2pointy("~comma_list(
-							elems.make_strings!("name"))~");"),
+							elems.make_strings!("name.cat(q{[i]})"))~");"),
 					"size_t opDollar(){ return n-1;}"
 	)));}
 	
-	mixin template soaslice(string name){
+	mixin template soaslice(string name,defs...){
 		mixin(
 			struct_construct(name~"soaslice(size_t soa=512)",
 				linebreak_list(
@@ -160,8 +159,8 @@ mixin template monkeydata(mtypes...){
 					q"[auto simdcast(){]"~endl~
 						q"[	assert(isfull);]"~endl~
 						q"[	struct simdfriendly{]"~endl~
-							q"[		int* x;]"~endl~
-							q"[		int* y;]"~endl~
+							q"[		static foreach(d;defs){]"~endl~
+								q"[			mixin( "d.T* "~d.name~";");}]"~endl~
 						q"[	}]"~endl~
 						q"[	static assert(simdfriendly.sizeof==typeof(start.grey).sizeof);]"~endl~
 						q"[	return cast(simdfriendly)(start.grey);]"~endl~
@@ -253,84 +252,82 @@ mixin template monkeydata(mtypes...){
 	mixin pointy_!(bar.stringof,foo);
 	mixin pointy!(bar.stringof,bar,[0]);
 	mixin soa_!(bar.stringof,foo);
-	mixin soaslice!(bar.stringof);
+	mixin soaslice!(bar.stringof,definitions!bar);
 	mixin aosoaslice!(bar.stringof);
 	mixin aosoa!(bar.stringof);
 }
 
+
+struct vec2{int x;int y;}
+mixin monkeydata!vec2;
+
+import std.stdio;
 unittest{
-	struct vec2{int x;int y;}
-	mixin monkeydata!vec2;
-	}/*
-	{
-		vec2 foo=vec2(1,2);
-		vec2pointy_ bar;
-		bar=foo;
-		bar.set(vec2(3,4));
-		assert(bar.x.get!int==3);
-		assert(bar.get!vec2 ==vec2(3,4));
-	}
-	{
-		vec2 foo=vec2(1,2);
-		vec2pointy_ bar;
-		bar=foo;
-		struct x_{int x;}
-		bar.set(x_(3));
-		assert(bar.get!vec2 == vec2(3,2));
-		struct y_{float y;}
-		import std.stdio;
-		writeln(bar.get!y_);
-	}
-	{
-		vec2 bar= vec2(1,2);
-		vec2pointy foo=bar;
-		assert(foo.tovec2==bar);
-	}
-	{
-		vec2 bar= vec2(1,2);
-		vec2pointy foo= vec2pointy(&bar.x,&bar.y);
-		assert(foo.tovec2==bar);
-	}
-	{
-		vec2 bar= vec2(1,2);
-		vec2pointy foo= vec2pointy(&bar.x,&bar.y);
-		foo= vec2(3,4);
-		//bar.writeln;
-		//foo.grey.x.get!int.writeln;
-		//foo.grey.y.get!int.writeln;
-		assert(bar==vec2(3,4));
-	}
+	vec2 foo=vec2(1,2);
+	vec2pointy_ bar;
+	bar=foo;
+	bar.set(vec2(3,4));
+	assert(bar.x.get!int==3);
+	assert(bar.get!vec2 ==vec2(3,4));
 }
 unittest{
-	struct vec2{int x;int y;}
-	mixin monkeydata!vec2;
-		struct x_{int x;}
-		struct y_{int y;}
-		x_[10] xs;
-		y_[10] ys;
-		vec2pointy foo;
-		vec2pointy bar;
-		foo.setpointers(xs[3]);
-		assert(cast(int*)foo.grey.x.point==&xs[3].x);
-		foo.setpointers(ys[4]);
-		//foo.tovec2.writeln;
-		foo=x_(1);
-		xs[3].x=1;
-		//"firstwrite".writeln;
-		//foo.grey.x.get!int.writeln;
-		//foo.grey.y.get!int.writeln;
-		foo=y_(2);
-		ys[4].y=2;
-		assert(xs[3].x==1);
-		assert(ys[4].y==2);
-		//foo.grey.x.get!int.writeln;
-		//foo.grey.y.get!int.writeln;
-		//foo.tovec2.writeln;
-		assert(foo.tovec2==vec2(1,2));
+	vec2 foo=vec2(1,2);
+	vec2pointy_ bar;
+	bar=foo;
+	struct x_{int x;}
+	bar.set(x_(3));
+	assert(bar.get!vec2 == vec2(3,2));
+	struct y_{float y;}
+	import std.stdio;
+	writeln(bar.get!y_);
 }
 unittest{
-		struct vec2{int x;int y;}
-	mixin monkeydata!vec2;
+	vec2 bar= vec2(1,2);
+	vec2pointy foo=bar;
+	assert(foo.tovec2==bar);
+}
+unittest{
+	vec2 bar= vec2(1,2);
+	vec2pointy foo= vec2pointy(&bar.x,&bar.y);
+	assert(foo.tovec2==bar);
+}
+unittest{
+	vec2 bar= vec2(1,2);
+	vec2pointy foo= vec2pointy(&bar.x,&bar.y);
+	foo= vec2(3,4);
+	//bar.writeln;
+	//foo.grey.x.get!int.writeln;
+	//foo.grey.y.get!int.writeln;
+	assert(bar==vec2(3,4));
+}
+unittest{
+	//"------".writeln;
+	struct x_{int x;}
+	struct y_{int y;}
+	x_[10] xs;
+	y_[10] ys;
+	vec2pointy foo;
+	vec2pointy bar;
+	foo.setpointers(xs[3]);
+	assert(cast(int*)foo.grey.x.point==&xs[3].x);
+	foo.setpointers(ys[4]);
+	//foo.tovec2.writeln;
+	foo=x_(1);
+	xs[3].x=1;
+	//"firstwrite".writeln;
+	//foo.grey.x.get!int.writeln;
+	//foo.grey.y.get!int.writeln;
+	foo=y_(2);
+	ys[4].y=2;
+	assert(xs[3].x==1);
+	assert(ys[4].y==2);
+	//foo.grey.x.get!int.writeln;
+	//foo.grey.y.get!int.writeln;
+	//foo.tovec2.writeln;
+	assert(foo.tovec2==vec2(1,2));
+}
+
+unittest{
 	//"------".writeln;
 	struct x_{int x;}
 	struct y_{int y;}
@@ -354,11 +351,9 @@ unittest{
 	assert(foo.tovec2==vec2(0,4));
 	--bar;
 	assert(bar.tovec2==vec2(0,2));
-	}
+}
 
 unittest{
-		struct vec2{int x;int y;}
-	mixin monkeydata!vec2;
 	//"------".writeln;
 	struct x_{int x;}
 	struct y_{int y;}
@@ -380,8 +375,10 @@ unittest{
 	assert(foo.tovec2 == vec2(4,6));
 	foo *= evilvec2(100,10);
 	assert(foo.tovec2 == vec2(40,600));
-	{
-		vec2soa_!(100) foo;
+}
+
+unittest{
+	vec2soa_!(100) foo;
 	auto bar=foo[0];
 	bar++;
 	assert(bar==foo[1]);
@@ -389,7 +386,80 @@ unittest{
 	assert(foo[0]<foo[1]);
 	assert(! (foo[1]<foo[0]));
 	assert(! (foo[0]>foo[1]));
-	}
 }
-*/
 
+unittest{
+	vec2soaslice!() foo;
+	foo.popFront;
+	assert(foo.empty);
+}
+
+unittest{
+	vec2aosoa!() foo;
+	assert(foo.count==0);
+	assert(foo[].start==0);
+	assert(foo[].empty);
+	assert(foo.chunks.length==0);
+	foo[$..100];
+	assert(foo.count==100);
+	assert(foo.chunks.length==1);
+	foo[$..500];
+	assert(foo.count==600);
+	assert(foo.chunks.length==2);
+	int bar;
+	struct x_{int x;}
+	void foobar_(T)(T a){bar++;}
+	void foobar(T)(T a){a=x_(bar);bar++;}
+	import std.algorithm;
+	foreach(f;foo){foobar_(f);}
+	assert(bar==2);
+	bar=0;
+	foreach(f;foo){foreach(b;f){foobar(b);}}
+	assert(bar==600);
+	assert(foo[366].tovec2==vec2(366,0));
+	assert(foo[512].tovec2==vec2(512,0));
+	foo[512].tovec2.writeln;
+	struct y_{int y;}
+	foreach(f;foo[$..1234]){foreach(b;f){b=vec2(0,5);}}
+	assert(foo.count==1834);
+	assert(foo[599].tovec2==vec2(599,0));
+	assert(foo[600].tovec2==vec2(0,5));
+	foo[0]=x_(1000);
+	
+	void simdtest(T)(T soa){
+		int[2]* x=cast(int[2]*)(soa.x);
+		int[2]* y=cast(int[2]*)(soa.y);
+		for(int i=0;i<256;i++){
+			int[2] xx=*x;
+			int[2] yy=*y;
+			asm{
+				movq XMM0, yy;
+				movq XMM1, xx;
+				paddd XMM0,XMM1;
+				movq yy, XMM0;
+			}
+			*x=xx;
+			*y=yy;
+			x++;
+			y++;
+		}
+	}
+	foreach(fizz; foo[]){
+		if(fizz.end__-fizz.start__==511){
+			simdtest(fizz.simdcast);
+		} else {
+			foreach(a;fizz){
+				a=y_(a.tovec2.x+a.tovec2.y);
+	}}}
+	
+	foreach(f;foo[]){foreach(b;f){
+		//b.tovec2.writeln;
+		if (b.tovec2.x>0){assert(b.tovec2.x==b.tovec2.y);}
+		else{assert(b.tovec2==vec2(0,5));}
+	}}
+	
+	assert(foo.count==1834);
+	foo.remove(123);
+	assert(foo[123].tovec2==vec2(0,5));
+	assert(foo.count==1833);
+}
