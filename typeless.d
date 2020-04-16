@@ -28,6 +28,15 @@ static string reverse_cat(string s, string t){
 	return t ~ s;}
 static string struct_construct(string s, string t){
 	return "struct "~s~curly_wrap(t.dup);}
+static string function_construct(string name,string import_,
+		string headergen,string bodygen,
+		string[] data)(){
+			import typeless;
+			mixin(import_);
+			mixin("enum head=data."~headergen~";");
+			mixin("enum body_=data."~bodygen~";");
+			return name~head.comma_list.paren_wrap~body_.endl_list.curly_wrap;
+}
 static string comma_list(string[] s...){
 	if(s.length==1) {return s.dup[0];}
 	else {return s.dup[0].comma_cat~comma_list(s.dup[1..$]);}

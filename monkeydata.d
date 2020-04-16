@@ -45,7 +45,8 @@ mixin template monkeydata(mtypes...){
 						
 	)));}
 	
-	mixin template pointy(string name,S,int[] subtypes){
+	mixin template pointy(string name,S,string[] elems,int[] subtypes){
+		import mixins;
 		mixin(
 			struct_construct(name~"pointy",
 				linebreak_list(
@@ -95,19 +96,8 @@ mixin template monkeydata(mtypes...){
 						q"[	return vec2pointy(grey.x,grey.y);}]"~endl~
 					q"[vec2 tovec2(){]"~endl~
 						q"[	return grey.get!vec2;}]"~endl,
-						
-					q"[this(ref mylitteral construct){]"~endl~
-						q"[	grey.x=typeof(grey.x)();grey.x=&construct.x;]"~endl~
-						q"[	grey.y=typeof(grey.y)();grey.y=&construct.y;]"~endl~
-					q"[}]"~endl~
-					q"[this(typeof(mylitteral.x)* x_,typeof(mylitteral.y)* y_){]"~endl~
-						q"[	grey.x=typeof(grey.x)();grey.x=x_;]"~endl~
-						q"[	grey.y=typeof(grey.y)();grey.y=y_;]"~endl~
-					q"[}]"~endl~
-					q"[this(typeof(grey.x) x_,typeof(grey.y) y_){]"~endl~
-						q"[	grey.x=typeof(grey.x)();grey.x=x_;]"~endl~
-						q"[	grey.y=typeof(grey.y)();grey.y=y_;]"~endl~
-					q"[}]"~endl~
+						pointyconstuctors!elems
+						,
 					q"[void setpointers(T)(ref T litteral){]"~endl~
 						q"[	static assert(issubtype!(mylitteral,T));]"~endl~
 						q"[	static foreach(def; definitions!T){]"~endl~
@@ -249,8 +239,9 @@ mixin template monkeydata(mtypes...){
 	
 	alias bar=mtypes[0];
 	enum typeless_[] foo=[typelessdefinations!(definitions!(bar))];
+	enum string[] fizz=make_strings!"name"(foo);
 	mixin pointy_!(bar.stringof,foo);
-	mixin pointy!(bar.stringof,bar,[0]);
+	mixin pointy!(bar.stringof,bar,fizz,[0]);
 	mixin soa_!(bar.stringof,foo);
 	mixin soaslice!(bar.stringof,definitions!bar);
 	mixin aosoaslice!(bar.stringof);
