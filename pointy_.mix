@@ -1,0 +1,30 @@
+	import voiddata;
+	import monkeytyping;
+	void opAssign(T)(ref T a){
+		static foreach(t; definitions!T){
+			mixin(t.name~" = &a."~t.name~";");}}
+	int opCmp(ref typeof(this) a){
+		return x.opCmp(a.x);
+	}
+	/* I'm choosing to make opcmp work on a single pointer
+	* this _shouldnt_ matter, but something I should keep in mind*/
+	bool opEquals(ref typeof(this) a){
+		import opoverloadulti;
+		return this.opequal(a);
+	}
+	void set(T)(T setter){
+		warn!T;
+		static foreach(t; definitions!T){
+			mixin(t.name~".set!(t.T)(setter."~t.name~");");}
+	}
+	T get(T)(){
+		warn!T;
+		T foo=void;
+		static foreach(t; definitions!T){
+			mixin("foo."~t.name~" = "~t.name~".get!(t.T);");}
+		return foo;
+	}
+	void warn(U)(){
+		alias T=vec2;
+		static if(!issubtype!(T,U)){
+			pragma(msg,"warn: "~U.stringof~" is not a subtype of "~T.stringof);}}

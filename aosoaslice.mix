@@ -1,0 +1,31 @@
+	myaosoa* parent;
+	size_t start;
+	static if(expanding){
+		size_t end(){return(*parent).count-1;}}
+	else{
+		size_t end;}
+	import lazynullable;
+	nullable!(mysoaslice) lasthead;
+	size_t segment(){
+		size_t natspilt= (start/soa+1)*soa-1;
+		import std.algorithm;
+		return min(natspilt,end);
+	}
+	mysoaslice front(){
+		if(lasthead.isnull){
+			auto seg=segment;
+			auto chunk= &(*parent).chunks[(start+1)/soa];
+			lasthead=mysoaslice(
+					start,(*parent)[start],
+					seg,(*parent)[seg],
+					chunk);
+		}
+		return lasthead;
+	}
+	void popFront(){
+		start=lasthead.end__;
+		start++;
+		lasthead.isnull=true;
+	}
+	bool empty(){ return start>end || (*parent).count ==0;}
+

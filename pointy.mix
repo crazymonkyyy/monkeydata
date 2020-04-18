@@ -1,0 +1,49 @@
+	import std.traits;
+	import monkeytyping;
+	auto ref opBinary(string op,T)(auto ref T a) if (hasMember!(T,"ispointy")){
+		return operation!op(tolitteral,a.tolitteral);
+	}
+	auto ref opBinary(string op,T)(auto ref T a) if (!hasMember!(T,"ispointy")){
+		return operation!op(tolitteral, a);
+	}
+	ref typeof(this) opAssign(T)(T a) if (hasMember!(T,"ispointy")){
+		this = a.tolitteral;
+		return this;
+	}
+	ref typeof(this) opAssign(T)(T a) if (!hasMember!(T,"ispointy")){
+		static if(issubtype!(mylitteral,T)){
+			static foreach(foo;definitions!T){
+				mixin("grey."~foo.name,".set(a.",foo.name,");//hello");}
+		} else { 
+			static assert(issubtype!(T,mylitteral),"These types airnt compadible");
+			static foreach(foo;definitions!mylitteral){
+				mixin("grey."~foo.name,".set(a.",foo.name,");");}}
+		return this;
+	}
+	ref typeof(this) opOpAssign(string op,T)(auto ref T a){
+		mixin("this = this ",op," a;");
+		return this;
+	}
+	ref typeof(this) opUnary(string op:"++")(){
+		grey++;return this;}
+	ref typeof(this) opUnary(string op:"--")(){
+		grey--;return this;}
+	void movepointer(int x){
+		grey + x;}
+	int opCmp(typeof(this) a){
+		return grey.opCmp(a.grey);}
+	bool opEquals(typeof(this) a){
+		import opoverloadulti;
+		return this.opequal(a);
+	}
+	void setpointers(T)(ref T litteral){
+		static assert(issubtype!(mylitteral,T));
+		static foreach(def; definitions!T){
+			mixin("grey."~def.name~" =&litteral."~def.name~";");
+	}}
+	void copypointers(T)(ref T pointy){
+		static assert(is(typeof(T.ispointy)));
+		static assert(issubtype!(mylitteral,T.mylitteral));
+		static foreach(def;definitions!(T.mylitteral)){
+			mixin("grey."~def.name~" = pointy.grey."~def.name~";");
+	}}

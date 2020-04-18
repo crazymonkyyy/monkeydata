@@ -1,8 +1,8 @@
+import std.conv;
+import typeless;
 auto mypointer(T)(T a){
-	import std.conv;
 	return "mypointer!"~a.size.to!string~" "~a.name;}
 auto myarray(T)(T a){
-	import std.conv;
 	return "voidarray!("~a.size.to!string~",n) "~a.name;}
 auto plusplus(T)(T a){
 	return "++"~a.name;}
@@ -21,7 +21,7 @@ static string header3(string elem){
 	return "typeof(grey."~elem~") "~elem~"_";}
 
 static string pointyconstuctors(string[] elems)(){
-	import typeless;
+
 	enum foo=function_construct!("this","import mixins;",
 		"header1",
 		"make_strings!(q{body1},q{import mixins;})",
@@ -36,3 +36,5 @@ static string pointyconstuctors(string[] elems)(){
 		elems)();
 	return foo~bar~fizz;
 }
+
+	

@@ -1,0 +1,35 @@
+	mychunk[] chunks;
+	size_t count;
+	struct dollar{}
+	dollar opDollar(){return dollar();}
+	mypointy opIndex(size_t i){
+		//writeln(i," ",count);
+		assert(i<count,"accessing random data is frowned on, use [0..i] 
+				if you intended to create i`th T, or [$..i] if you intended 
+				to make i elements");
+		return (chunks[i/soa])[i%soa];
+	}
+	mypointy opIndex(dollar i){return this[count-1];}
+	myslice!(true,soa) opSlice(){return this[0..$];}
+	myslice!(false,soa) opSlice(size_t i,size_t j){
+		return myslice!(false,soa)(&this,i,j);
+	}
+	myslice!(true,soa) opSlice(size_t i,dollar j){
+		return myslice!(true,soa)(&this,i);
+	}
+	myslice!(false,soa) opSlice(dollar i,size_t j){
+		auto c=count;
+		expand(count+j);
+		return this[c..count-1];
+	}
+	void expand(size_t i){
+		if(i>count){
+			if(i > chunks.length*soa){ chunks.length= (i/soa)+1;}
+			count=i;
+		}
+	}
+	void remove(size_t i){
+		this[i]=this[$];
+		count--;
+	}
+	alias opSlice this;

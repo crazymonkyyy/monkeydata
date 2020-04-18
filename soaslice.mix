@@ -1,0 +1,28 @@
+	size_t start__;
+	mypointy start;
+	size_t end__;
+	mypointy end;
+	
+	mysoa* mychunk;
+	
+	mypointy front(){return start;}
+	void popFront(){start++;}
+	bool empty(){return start > end;}
+	
+	void opAssign(typeof(this) a){
+		start__=a.start__;
+		end__=a.end__;
+		start.copypointers(a.start);
+		end.copypointers(a.end);
+		mychunk=a.mychunk;
+	}
+	bool isfull(){return (end__-start__==soa-1);}
+	auto simdcast(){
+		assert(isfull);
+		struct simdfriendly{
+			int* x;
+			int* y;
+		}
+		static assert(simdfriendly.sizeof==typeof(start.grey).sizeof);
+		return cast(simdfriendly)(start.grey);
+	}
