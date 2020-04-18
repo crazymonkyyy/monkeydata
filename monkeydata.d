@@ -2,7 +2,7 @@ mixin template monkeydata(mtypes...){
 	import monkeytyping;
 	import typeless;
 	
-	mixin template pointy_(string name,typeless_[] elems){
+	mixin template pointy_(string name,typeless_[] elems,S){
 		mixin(
 			struct_construct(name~"pointy_",
 				linebreak_list(
@@ -38,7 +38,7 @@ mixin template monkeydata(mtypes...){
 						q"[	return foo;]"~endl~
 					q"[}]",
 					q"[void warn(U)(){]"~endl~
-						q"[	alias T=vec2;]"~endl~
+						q"[	alias T=S;]"~endl~
 						q"[	static if(!issubtype!(T,U)){]"~endl~
 						q"[		pragma(msg,"warn: "~U.stringof~" is not a subtype of "~T.stringof);}]"~endl~
 					q"[}]"
@@ -47,6 +47,24 @@ mixin template monkeydata(mtypes...){
 	
 	mixin template pointy(string name,S,string[] elems,int[] subtypes){
 		import mixins;
+		import typeless;
+		import monkeytyping;
+		static string convertor(string name,string i,string[] elems)(){
+			enum foo="	"~name~"pointy to"~name~"pointy()"~curly_wrap(
+				"		return "~name~"pointy"~paren_wrap(
+							elems.make_strings!("reverse_cat(q{grey.})").comma_list).endl_cat);
+			enum bar="mtypes["~i~"] to"~name~"()"~curly_wrap("	return grey.get!(mtypes["~i~"]);"~endl);
+			return foo~bar;
+		}
+		static string convertors(int[] subtypes)(){
+			string output="";
+			static foreach(i; subtypes){
+				import std.conv;
+				enum elems=make_strings!("name")(typelessdefinations!(definitions!(mtypes[i])));
+				output~=convertor!(mtypes[i].stringof,to!string(i),elems);
+			}
+			return output;
+		}
 		mixin(
 			struct_construct(name~"pointy",
 				linebreak_list(
@@ -92,12 +110,8 @@ mixin template monkeydata(mtypes...){
 						q"[	return this.opequal(a);]"~endl~
 					q"[}]"~endl,
 					//todo convertions
-					q"[vec2pointy tovec2pointy(){]"~endl~
-						q"[	return vec2pointy(grey.x,grey.y);}]"~endl~
-					q"[vec2 tovec2(){]"~endl~
-						q"[	return grey.get!vec2;}]"~endl,
-						pointyconstuctors!elems
-						,
+					convertors!subtypes(),
+					pointyconstuctors!elems,
 					q"[void setpointers(T)(ref T litteral){]"~endl~
 						q"[	static assert(issubtype!(mylitteral,T));]"~endl~
 						q"[	static foreach(def; definitions!T){]"~endl~
@@ -119,7 +133,7 @@ mixin template monkeydata(mtypes...){
 					"import voiddata;",
 					elems.make_strings!("myarray","import mixins;").endl_list,
 					name~"pointy opIndex(size_t i)"~curly_wrap(
-						"return vec2pointy("~comma_list(
+						"return "~name~"pointy("~comma_list(
 							elems.make_strings!("name.cat(q{[i]})"))~");"),
 					"size_t opDollar(){ return n-1;}"
 	)));}
@@ -240,7 +254,7 @@ mixin template monkeydata(mtypes...){
 	alias bar=mtypes[0];
 	enum typeless_[] foo=[typelessdefinations!(definitions!(bar))];
 	enum string[] fizz=make_strings!"name"(foo);
-	mixin pointy_!(bar.stringof,foo);
+	mixin pointy_!(bar.stringof,foo,bar);
 	mixin pointy!(bar.stringof,bar,fizz,[0]);
 	mixin soa_!(bar.stringof,foo);
 	mixin soaslice!(bar.stringof,definitions!bar);
@@ -250,6 +264,8 @@ mixin template monkeydata(mtypes...){
 
 
 struct vec2{int x;int y;}
+
+struct vec3{int x;int y;int z;}
 mixin monkeydata!vec2;
 
 import std.stdio;
@@ -454,3 +470,4 @@ unittest{
 	assert(foo[123].tovec2==vec2(0,5));
 	assert(foo.count==1833);
 }
+
