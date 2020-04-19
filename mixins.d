@@ -21,7 +21,6 @@ static string header3(string elem){
 	return "typeof(grey."~elem~") "~elem~"_";}
 
 static string pointyconstuctors(string[] elems)(){
-
 	enum foo=function_construct!("this","import mixins;",
 		"header1",
 		"make_strings!(q{body1},q{import mixins;})",

@@ -25,6 +25,6 @@
 		return foo;
 	}
 	void warn(U)(){
-		alias T=vec2;
+		alias T=S;
 		static if(!issubtype!(T,U)){
 			pragma(msg,"warn: "~U.stringof~" is not a subtype of "~T.stringof);}}

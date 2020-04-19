@@ -28,10 +28,11 @@ mixin template monkeydata(mtypes...){
 		}
 		static string convertors(int[] subtypes)(){
 			string output="";
+			template elems(int i){
+				enum elems=make_strings!("name")(typelessdefinations!(definitions!(mtypes[i])));}
 			static foreach(i; subtypes){
 				import std.conv;
-				enum elems=make_strings!("name")(typelessdefinations!(definitions!(mtypes[i])));
-				output~=convertor!(mtypes[i].stringof,to!string(i),elems);
+				output~=convertor!(mtypes[i].stringof,to!string(i),elems!i);
 			}
 			return output;
 		}
@@ -79,14 +80,27 @@ mixin template monkeydata(mtypes...){
 				"alias myslice="~name~"aosoaslice;",
 				"alias mychunk="~name~"soa_!soa;"
 	)));}
-	
-	alias bar=mtypes[0];
-	enum typeless_[] foo=[typelessdefinations!(definitions!(bar))];
-	enum string[] fizz=make_strings!"name"(foo);
-	mixin pointy_!(bar.stringof,foo,bar);
-	mixin pointy!(bar.stringof,bar,fizz,[0]);
-	mixin soa_!(bar.stringof,foo);
-	mixin soaslice!(bar.stringof,definitions!bar);
-	mixin aosoaslice!(bar.stringof);
-	mixin aosoa!(bar.stringof);
+	mixin template everything(int i,T){
+		alias formatmembers=definitions!T;// vec2 => [(int,x),(int,y)]
+		enum typeless_[] typelessmembers=[typelessdefinations!formatmembers];// vec2 => [(4,"x"),(4,"y")]
+		enum string[] membernames=make_strings!("name")(typelessmembers);// vec2 => ["x","y"]
+		enum namelitteral=T.stringof; // vec2 => "vec2"
+		
+		import std.meta;
+		template f(alias T){
+			enum f=(T._1==i);}
+		template g(alias T){
+			alias g=T._2;}
+		enum mysubtypes=staticMap!(g,Filter!(f,subtypelist!mtypes));
+		
+		mixin pointy_!(namelitteral,typelessmembers,T);
+		mixin pointy!(namelitteral,T,membernames,[mysubtypes]);
+		mixin soa_!(namelitteral,typelessmembers);
+		mixin soaslice!(namelitteral,formatmembers);
+		mixin aosoaslice!(namelitteral);
+		mixin aosoa!(namelitteral);
+	}
+	static foreach(i,T;mtypes){
+		mixin everything!(i,T);
+	}
 }

@@ -2,7 +2,7 @@ import monkeydata;
 struct vec2{int x;int y;}
 
 struct vec3{int x;int y;int z;}
-mixin monkeydata!vec2;
+mixin monkeydata!(vec2,vec3);
 
 import std.stdio;
 unittest{
