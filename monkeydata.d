@@ -110,11 +110,12 @@ void simdmap(alias f,alias g,T)(T slice){
 	else{
 		foreach(a;slice){
 			g(a);}}
-	unittest{
+	/*unittest{
 		pragma(msg,"note simdmap should run tests that f is"~ 
 				"equalilent to g, and f is faster then g; but I'm very"~
 				" tired of this project");
-}}
+	}*/
+}
 void lazymap(alias f,T)(T slice){
 	if(slice.end__-slice.start__==511){
 		foreach(i;0..511){//maybe it will optimise?
