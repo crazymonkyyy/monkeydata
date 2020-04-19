@@ -206,3 +206,5 @@ unittest{
 	assert(foo[123].tovec2==vec2(0,5));
 	assert(foo.count==1833);
 }
+
+
